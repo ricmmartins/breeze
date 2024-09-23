@@ -76,9 +76,9 @@
 
         .contact {
             text-align: center;
-            margin: 40px auto; /* Ajuste para centralização */
+            margin: 40px auto;
             padding: 20px;
-            max-width: 600px; /* Limite de largura para melhor centralização */
+            max-width: 600px;
         }
 
         .contact h2 {
@@ -113,6 +113,47 @@
             max-width: 200px;
         }
 
+        /* Responsividade */
+        @media (max-width: 768px) {
+            nav .menu {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav .menu a {
+                margin: 10px 0;
+            }
+
+            header .header-content,
+            .container,
+            footer .footer-content {
+                width: 100%;
+                padding: 0 20px;
+            }
+
+            .contact {
+                width: 100%;
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav .menu a {
+                font-size: 1em;
+            }
+
+            .contact h2 {
+                font-size: 1.5em;
+            }
+
+            .contact p {
+                font-size: 1em;
+            }
+
+            .contact a {
+                font-size: 1.1em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -135,7 +176,6 @@
 
 <div class="container">
     <div class="contact">
-        <h2>Entre em Contato</h2>
         <p>Gostaria de saber mais sobre nossos produtos ou fazer um pedido? Entre em contato conosco:</p>
         <p>Email: <a href="mailto:contato@breeze.skin">contato@breeze.skin</a></p>
         <p>Telefone: (21) 99804-0228</p>
