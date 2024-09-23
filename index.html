@@ -32,7 +32,7 @@
             width: 960px;
             margin: 0 auto;
             display: flex;
-            justify-content: flex-end; /* Alinhado à direita */
+            justify-content: flex-end;
             align-items: center;
         }
 
@@ -54,7 +54,7 @@
             background-color: #85a392;
             color: white;
             padding: 20px;
-            margin-top: 60px; /* Compensa o espaço do menu fixo */
+            margin-top: 60px;
         }
 
         header .header-content {
@@ -71,7 +71,7 @@
             border-radius: 8px;
         }
 
-        /* Menu lateral com âncoras para cada seção */
+        /* Menu de navegação das categorias */
         .category-nav {
             background-color: #f2f2f2;
             padding: 15px;
@@ -127,14 +127,14 @@
             padding: 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease; /* Transição suave */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
         }
 
         /* Efeito ao passar o mouse sobre os produtos */
         .product:hover {
-            transform: translateY(-10px); /* Move o produto para cima */
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aumenta a sombra */
-            border: 1px solid #85a392; /* Altera a cor da borda */
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border: 1px solid #85a392;
         }
 
         .product img {
@@ -188,6 +188,64 @@
             max-width: 200px;
         }
 
+        /* Responsividade */
+        @media (max-width: 768px) {
+            nav .menu {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+            nav .menu a {
+                margin: 10px 0;
+            }
+
+            header .header-content {
+                width: 100%;
+                padding: 0 20px;
+            }
+
+            .container {
+                width: 100%;
+                padding: 0 20px;
+            }
+
+            .product-category {
+                margin-bottom: 30px;
+            }
+
+            .product {
+                padding: 15px;
+            }
+
+            footer .footer-content {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .intro-text h3 {
+                font-size: 1.5em;
+            }
+
+            .product h3 {
+                font-size: 1.2em;
+            }
+
+            .download-pdf a {
+                padding: 10px 15px;
+                font-size: 1em;
+            }
+
+            .category-nav {
+                padding: 10px;
+            }
+
+            .category-nav a {
+                font-size: 1em;
+                margin: 0 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -197,13 +255,13 @@
     <div class="menu">
         <a href="#">Página Principal</a>
         <a href="#catalogo">Catálogo</a>
-        <a href="contato.html">Contato</a> <!-- Link para a nova página de contato -->
+        <a href="contato.html">Contato</a>
     </div>
 </nav>
 
 <header>
     <div class="header-content">
-        <img src="images/header.png" alt="Imagem de Sabonete Carvão Ativado, com fundo de natureza e elementos de bem-estar">
+        <img src="images/_DSC0018.JPG" alt="Imagem de Sabonete Carvão Ativado, com fundo de natureza e elementos de bem-estar">
         <h1>Breeze Cosméticos</h1>
         <p>Saúde e bem-estar para sua pele e cabelos</p>
     </div>
@@ -239,43 +297,79 @@
     <div class="product-category">
         <div class="product">
             <h3>Carvão Ativado</h3>
-            <p>Desenvolvido especialmente para peles oleosas e acneicas. Pode também ser utilizado no couro cabeludo que se apresente oleoso.
-               A presença do carvão ativado junto aos óleos selecionados promoverá a desintoxicação da pele, controle da oleosidade e também agirá como fungicida e bactericida.
-            </p>
+            <p>Desenvolvido especialmente para peles oleosas e
+                acneicas. Pode também ser utilizado no couro cabelo que
+                também se apresente oleoso.
+                A presença do carvão ativado junto aos óleos selecionados
+                promoverá a desintoxicação da pele, controle da
+                oleosidade e também agirá como fungicidade e
+                bactericida.
+                </p>
             <p class="price">R$ 35</p>
         </div>
 
         <div class="product">
             <h3>Coco Palmiste e Lavanda</h3>
-            <p>Desenvolvido para atender às necessidades das peles desidratadas, sem brilho, e dos cabelos que enfrentam esses mesmos desafios. Além disso, este produto auxilia em casos de fragilidade capilar, com óleos essenciais selecionados que nutrem o bulbo capilar, ajudando a prevenir a queda e promovendo o crescimento saudável dos fios.
-               Com óleos essenciais que atuam contra o estresse, ele também proporciona uma sensação de paz e tranquilidade.
-            </p>
+            <p>Desenvolvido para atender às necessidades das peles
+                desidratadas, sem brilho, e dos cabelos que enfrentam
+                esses mesmos desafios. Além disso, este produto auxilia
+                em casos de fragilidade capilar, com óleos essenciais
+                selecionados que nutrem o bulbo capilar, ajudando a
+                prevenir a queda e promovendo o crescimento saudável
+                dos fios. Com óleos essenciais que atuam contra o
+                estresse, ele também proporciona uma sensação de paz e
+                tranquilidade.</p>
             <p class="price">R$ 35</p>
         </div>
 
         <div class="product">
             <h3>Pura Oliva</h3>
-            <p>Este sabonete foi desenvolvido para atender a todo tipo de pele, em especial, peles sensíveis e delicadas.
-               Os óleos essenciais presentes na fórmula irão proporcionar o equilíbrio para a pele, mas também para o emocional, suscitando alegria, vigor e bem-estar.
-            </p>
+            <p>Este sabonete foi desenvolvido para atender a todo tipo
+                de pele. Em especial, peles sensíveis e delicadas.
+                Os óleos essenciais presentes na formula irão
+                proporcionar o equilíbrio para a pele mas também para o
+                emocional, por se tratarem de óleos que suscitam alegria,
+                vigor e bem-estar.</p>
             <p class="price">R$ 35</p>
         </div>
 
         <div class="product">
             <h3>Argila Preta e Vermelha</h3>
-            <p>Desenvolvido para atender às necessidades das peles maduras e desvitalizadas. Com ativos que combatem radicais livres, este sabonete estimula a produção de colágeno, melhorando a elasticidade e a vitalidade da pele.</p>
+            <p>Desenvolvido para atender às necessidades das peles
+                maduras e das peles desvitalizadas e sem viço.
+                Os princípios ativos desta formulação agem de forma
+                sinérgica combatendo os radicais livres, estimulando a
+                circulação sanguínea e, desta forma, melhorando a
+                oxigenação da pele e estimulando a produção de
+                colágeno e elastina. A receita perfeita para quem busca
+                atenuar rugas, marcas de expressão e flacidez.
+                A presença dos óleos essenciais com efeitos ansiolíticos,
+                antidepressivos e revigorantes, no emocional, são capazes
+                de promover alegria de viver.</p>
             <p class="price">R$ 35</p>
         </div>
 
         <div class="product">
             <h3>Infantil e Peles Sensíveis</h3>
-            <p>Formulado para peles infantis e delicadas, este sabonete garante uma hidratação suave, ideal para nutrir a pele sem irritá-la.</p>
+            <p>Desenvolvido para atender aos cuidados especiais que
+                peles infantis e sensiveis necessitam. Os ácidos graxos
+                presentes nos óleos vegetais são encontrados também na
+                pele humada e fazem parte do processo de manutenção
+                da hidratação e da manutenção da flexibilidade e maciez
+                da pele.
+                </p>
             <p class="price">R$ 35</p>
         </div>
 
         <div class="product">
             <h3>Amazônia</h3>
-            <p>Sabonete com manteiga de cupuaçu, óleo de açaí e ingredientes da floresta Amazônica. Proporciona uma hidratação profunda e revitaliza a pele com um toque exótico e natural.</p>
+            <p>Nutrição e hidratação profunda para sua pele, com
+                ingredientes especiais nativos da nossa floresta. Feito com
+                manteigas de cupuaçu e ucuuba, óleo vegetal de açaí e
+                uma combinação de óleos essenciais poderosos como
+                lavanda, copaíba e gerânio. Ele revitaliza, regenera e
+                acalma, proporcionando um cuidado natural e profundo.
+                Ideal para quem busca uma pele macia e protegida.</p>
             <p class="price">R$ 38</p>
         </div>
     </div>
@@ -284,7 +378,12 @@
     <div class="product-category">
         <div class="product">
             <h3>Shampoo Fortalecedor de Alecrim</h3>
-            <p>Fortalece os fios, evita frizz e promove crescimento saudável do cabelo. Ideal para cabelos finos e quebradiços.</p>
+            <p>Desenvolvido para atender a demanda de cabelos que
+                precisam ser fortalecidos, por meio de uma formulação
+                que irá proporcional uma blindagem ao fio, evitar o frizz, a
+                formação de ponta dupla e auxiliar no crescimento. É
+                indicado também para auxiliar na penteabilidade,
+                definição de cachos e selamento de cutículas.</p>
             <p class="price">R$ 40</p>
         </div>
     </div>
@@ -293,13 +392,28 @@
     <div class="product-category">
         <div class="product">
             <h3>Pomada para Psoríase</h3>
-            <p>Hidrata e promove cicatrização para peles com psoríase, ajudando a aliviar o desconforto e inflamações.</p>
+            <p>A psoríase é uma doença de pele inflamatória,
+                multifatorial de incidência genética e relacionada ao
+                sistema imunológico e ao estresse.
+                Para tratar as lesões é importante hidratar a pele e usar
+                ativos anti-inflamatórios, cicatrizantes e calmantes. Por
+                isso, a aromaterapia é uma excelente proposta de
+                tratamento por ter como foco tratar o indivíduo em sua
+                integralidade.
+                Alinhado a esse propósito, nasce a pomada para psoríase,
+                com ativos que cuidarão de você de dentro para fora.
+                </p>
             <p class="price">R$ 60 | 30g</p>
         </div>
 
         <div class="product">
             <h3>Pomada Alívio</h3>
-            <p>Elaborada para aliviar dores musculares e articulares, com ingredientes anti-inflamatórios naturais.</p>
+            <p>Alívio é uma pomada natural e vegana que foi elaborada
+                pensando em aliviar dores músculo-esqueléticas.
+                Ela contém óleos essenciais que possuem ação
+                analgésica, anti-inflamatória e calmantes, proporcionando
+                assim não apenas o alívio, mas também qualidade de vida
+                e um melhor bem-estar.</p>
             <p class="price">R$ 60 | 100g</p>
         </div>
     </div>
@@ -308,7 +422,12 @@
     <div class="product-category">
         <div class="product">
             <h3>Desodorante Natural</h3>
-            <p>Vegano e livre de alumínio, com ingredientes naturais para garantir proteção sem desreguladores endócrinos.</p>
+            <p>O desodorante natural foi elaborado à partir de matérias
+                primas vegetais. Totalmente vegano, sua composição se
+                torna livre de ingredientes nocivos à saúde como lauril,
+                parabenos, petrolados e alumínio, que agem como
+                desruptores endócrinos.
+                </p>
             <p class="price">R$ 30 | 100g</p>
         </div>
     </div>
@@ -317,7 +436,12 @@
     <div class="product-category">
         <div class="product">
             <h3>Lip Balm com e sem cor</h3>
-            <p>Hidrata profundamente os lábios, evitando rachaduras, com ingredientes naturais como óleo de pracaxi e manteiga de cacau.</p>
+            <p>Ideal para manter a hidratação dos lábios e evitar
+                rachaduras. Elaborado com óleo de pracaxi, maneiga de
+                cacau, cera de carnaúba, óleo resina de alecrim, absoluta
+                de cacau e absoluto de baunilha, o lip balm vai oferecer
+                uma ação hidratante muito potente.
+                </p>
             <p class="price">R$ 12</p>
         </div>
     </div>
@@ -326,13 +450,18 @@
     <div class="product-category">
         <div class="product">
             <h3>Calma e Equilíbrio</h3>
-            <p>Blend de óleos essenciais para atenuar sintomas de ansiedade e insônia.</p>
+            <p>Blend de óleos essenciais que podem ser aplicados em
+                pontos vitais com o objetivo de atenuar sintomas de
+                ansiedade, insônia e outras questões e desequilibrios
+                emocionais.</p>
             <p class="price">R$ 80</p>
         </div>
 
         <div class="product">
             <h3>Foco e Concentração</h3>
-            <p>Blend de óleos essenciais que promove foco e atenção durante o dia-a-dia.</p>
+            <p>Blend de óleos essenciais que podem ser aplicados em
+                pontos vitais com o objetivo de trazer mais foco e
+                concentração ao seu dia-a-dia.</p>
             <p class="price">R$ 80</p>
         </div>
     </div>
@@ -341,25 +470,37 @@
     <div class="product-category">
         <div class="product">
             <h3>Lavanda</h3>
-            <p>Aromatizador para ambientes com óleo essencial de lavanda, promovendo relaxamento.</p>
+            <p>Envelope aromático com óleo essencial de lavanda, ideal
+                para ambientes. Promove relaxamento e traz uma
+                atmosfera tranquila e acolhedora, transformando o
+                espaço com o aroma suave e calmante da lavanda.</p>
             <p class="price">R$ 10</p>
         </div>
 
         <div class="product">
             <h3>Laranja e Canela</h3>
-            <p>Combinação energizante e acolhedora para aromatizar ambientes com toque cítrico e especiarias.</p>
+            <p>Envelope aromático com óleos essenciais de canela e
+                laranja, perfeito para ambientes. Combina o toque
+                energizante da laranja com o calor acolhedor da canela,
+                criando uma atmosfera vibrante e revigorante.</p>
             <p class="price">R$ 10</p>
         </div>
 
         <div class="product">
             <h3>Fresh</h3>
-            <p>Aroma cítrico refrescante para revitalizar o ambiente.</p>
+            <p>Envelope aromático Fresh, ideal para ambientes, oferece
+                um aroma cítrico e refrescante que energiza o espaço,
+                promovendo uma atmosfera revigorante e purificadora
+                </p>
             <p class="price">R$ 10</p>
         </div>
 
         <div class="product">
             <h3>Capim-limão</h3>
-            <p>Revitaliza e purifica o ambiente com óleo essencial de capim-limão.</p>
+            <p>Envelope aromático com óleo essencial de capim-limão,
+                ideal para ambientes. Oferece um aroma fresco e
+                revitalizante, purificando o espaço e trazendo uma
+                sensação de leveza e energia renovada.</p>
             <p class="price">R$ 10</p>
         </div>
     </div>
@@ -368,13 +509,21 @@
     <div class="product-category">
         <div class="product">
             <h3>Paz e Alegria</h3>
-            <p>Vela com blend de óleos essenciais que promovem calma e bem-estar emocional.</p>
+            <p>Desenvolvida para proporcionar um ambiente leve,
+                tranquilo e acolhedor, graças ao seu blend de óleos
+                essenciais cuidadosamente selecionados. Esses óleos
+                atuam como calmantes, ansiolíticos e antidepressivos
+                naturais, despertando alegria e entusiasmo pela vida.</p>
             <p class="price">R$ 80 | 150g</p>
         </div>
 
         <div class="product">
             <h3>Energia</h3>
-            <p>Blend de óleos que restaura a vitalidade e disposição.</p>
+            <p>Desenvolvida para auxiliar a enfrentar os desafios do dia a
+                dia, graças ao seu blend de óleos essenciais
+                cuidadosamente selecionados. Esses óleos atuam através
+                do poder revitalizante das plantas, restaurando sua
+                vitalidade e disposição.</p>
             <p class="price">R$ 80 | 150g</p>
         </div>
     </div>
@@ -383,13 +532,21 @@
     <div class="product-category">
         <div class="product">
             <h3>Relax</h3>
-            <p>Blend de óleos essenciais que promove relaxamento e melhora a qualidade de vida.</p>
+            <p>Este blend de óleos essenciais foi cuidadosamente
+                formulado para amenizar os efeitos do estresse no corpo
+                ao trazer calma e tranquilidade para o seu ambiente.
+                </p>
             <p class="price">R$ 60 | 300ml</p>
         </div>
 
         <div class="product">
             <h3>Foco e Atenção</h3>
-            <p>Auxilia na recuperação do foco e clareza mental para manter a produtividade.</p>
+            <p>Este blend de óleos essenciais foi cuidadosamente
+                desenvolvido para trazer ao seu ambiente propriedades
+                que auxiliam na recuperação do foco e da clareza mental,
+                ajudando você a se concentrar melhor nas suas tarefas
+                diárias e a manter a produtividade, mesmo em meio às
+                distrações.</p>
             <p class="price">R$ 60 | 300ml</p>
         </div>
     </div>
@@ -398,19 +555,30 @@
     <div class="product-category">
         <div class="product">
             <h3>Relax</h3>
-            <p>Spray de ambiente que alivia o estresse e promove um relaxamento suave.</p>
+            <p>Este blend de óleos essenciais foi cuidadosamente
+                formulado para amenizar os efeitos do estresse no corpo.
+                Com o uso regular, ele promove um relaxamento suave,
+                melhorando sua qualidade de vida.
+                </p>
             <p class="price">R$ 59 | 250ml</p>
         </div>
 
         <div class="product">
             <h3>Energia</h3>
-            <p>Restaurador de vitalidade e disposição com poder revitalizante das plantas.</p>
+            <p>Este blend de óleos essenciais foi cuidadosamente
+                formulado com o poder revitalizante das plantas, criando
+                uma sinergia que restaura sua vitalidade e disposição
+                para enfrentar as tarefas do dia a dia.</p>
             <p class="price">R$ 59 | 250ml</p>
         </div>
 
         <div class="product">
             <h3>Ar Puro</h3>
-            <p>Blend de óleos essenciais com propriedades antissépticas para melhorar a qualidade do ar.</p>
+            <p>Este blend de óleos essenciais contém propriedades
+                antissépticas, atuando como bactericida e antiviral. Ele foi
+                criado para ser utilizado no ambiente, melhorando a
+                qualidade do ar e, assim, contribuindo para sua saúde e
+                bem-estar.</p>
             <p class="price">R$ 59 | 250ml</p>
         </div>
     </div>
@@ -419,13 +587,22 @@
     <div class="product-category">
         <div class="product">
             <h3>Bons Sonhos</h3>
-            <p>Blend de óleos que ajuda a relaxar e promove uma noite de sono tranquila.</p>
+            <p>Este blend de óleos essenciais foi cuidadosamente
+                desenvolvido para aliviar os sintomas da insônia,
+                promovendo relaxamento, reduzindo a ansiedade e a
+                hiperatividade, e favorecendo uma noite de sono
+                tranquila e revigorante.
+                </p>
             <p class="price">R$ 40 | 175ml</p>
         </div>
 
         <div class="product">
             <h3>Afrodisíaca</h3>
-            <p>Estimulante da sensualidade e paixão, com combinação de óleos que despertam os sentidos.</p>
+            <p>Esse blend de óleos essenciais foi desenvolvido com o
+                objetivo de estimular a sensualidade e a paixão. A
+                combinação selecionada agirá sinergicamente
+                despertando os sentidos e convidando à intimidade e
+                expressão da sexualidade.</p>
             <p class="price">R$ 40 | 175ml</p>
         </div>
     </div>
