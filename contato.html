@@ -29,10 +29,12 @@
         }
 
         nav .menu {
-            width: 960px;
+            width: 100%;
+            max-width: 960px;
             margin: 0 auto;
             display: flex;
-            justify-content: flex-end; /* Alinhado à direita */
+            justify-content: flex-end;
+            padding-right: 15px; /* Adiciona espaço à direita */
             align-items: center;
         }
 
@@ -54,7 +56,7 @@
             background-color: #85a392;
             color: white;
             padding: 20px;
-            margin-top: 60px; /* Compensa o espaço do menu fixo */
+            margin-top: 60px;
         }
 
         header .header-content {
@@ -117,9 +119,8 @@
         @media (max-width: 768px) {
             nav .menu {
                 flex-direction: column;
-                align-items: flex-end; /* Mantém o alinhamento à direita */
-                width: 100%;
-                padding-right: 20px; /* Espaçamento para o alinhamento */
+                align-items: flex-end;
+                padding-right: 20px; /* Espaçamento à direita para telas menores */
             }
 
             nav .menu a {
