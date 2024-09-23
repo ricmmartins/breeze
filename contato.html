@@ -117,11 +117,14 @@
         @media (max-width: 768px) {
             nav .menu {
                 flex-direction: column;
-                align-items: center;
+                align-items: flex-end; /* Mantém o alinhamento à direita */
+                width: 100%;
+                padding-right: 20px; /* Espaçamento para o alinhamento */
             }
 
             nav .menu a {
                 margin: 10px 0;
+                font-size: 1.1em;
             }
 
             header .header-content,
