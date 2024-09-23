@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Breeze Cosméticos: produtos artesanais e naturais para saúde, bem-estar e cuidados com pele e cabelos. Catálogo de sabonetes, shampoos, velas aromáticas e mais.">
+    <title>Página Principal</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilos do menu fixo */
+        nav {
+            background-color: #5d737e;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        nav .menu {
+            width: 960px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: flex-end; /* Alinhado à direita */
+            align-items: center;
+        }
+
+        nav .menu a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav .menu a:hover {
+            color: #85a392;
+        }
+
+        /* Compensação para o menu fixo */
+        header {
+            background-color: #85a392;
+            color: white;
+            padding: 20px;
+            margin-top: 60px; /* Compensa o espaço do menu fixo */
+        }
+
+        header .header-content {
+            width: 960px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        header img {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* Menu lateral com âncoras para cada seção */
+        .category-nav {
+            background-color: #f2f2f2;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .category-nav a {
+            color: #5d737e;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        .category-nav a:hover {
+            color: #85a392;
+        }
+
+        .container {
+            width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #5d737e;
+        }
+
+        .intro-text {
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .intro-text h3 {
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .product-category {
+            margin-bottom: 40px;
+        }
+
+        .product {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease; /* Transição suave */
+        }
+
+        /* Efeito ao passar o mouse sobre os produtos */
+        .product:hover {
+            transform: translateY(-10px); /* Move o produto para cima */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aumenta a sombra */
+            border: 1px solid #85a392; /* Altera a cor da borda */
+        }
+
+        .product img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .product h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+
+        .price {
+            color: #85a392;
+            font-weight: bold;
+        }
+
+        .download-pdf {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .download-pdf a {
+            background-color: #5d737e;
+            color: white;
+            padding: 15px 25px;
+            font-size: 1.2em;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-pdf a:hover {
+            background-color: #6b8b83;
+        }
+
+        footer {
+            background-color: #5d737e;
+            color: white;
+            padding: 20px;
+        }
+
+        footer .footer-content {
+            width: 960px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        footer img {
+            max-width: 200px;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Menu fixo -->
+<nav>
+    <div class="menu">
+        <a href="#">Página Principal</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="contato.html">Contato</a> <!-- Link para a nova página de contato -->
+    </div>
+</nav>
+
+<header>
+    <div class="header-content">
+        <img src="images/_DSC0018.JPG" alt="Imagem de Sabonete Carvão Ativado, com fundo de natureza e elementos de bem-estar">
+        <h1>Breeze Cosméticos</h1>
+        <p>Saúde e bem-estar para sua pele e cabelos</p>
+    </div>
+</header>
+
+<!-- Menu de navegação das categorias -->
+<div class="category-nav">
+    <a href="#sabonetes">Sabonetes</a>
+    <a href="#shampoos">Shampoos</a>
+    <a href="#pomadas">Pomadas</a>
+    <a href="#desodorantes">Desodorantes</a>
+    <a href="#lip-balms">Lip Balms</a>
+    <a href="#roll-ons">Roll-ons</a>
+    <a href="#envelopes-aromaticos">Envelopes Aromáticos</a>
+    <a href="#velas-aromaticas">Velas Aromáticas</a>
+    <a href="#difusores">Difusores</a>
+    <a href="#home-sprays">Home Sprays</a>
+    <a href="#agua-de-lencois">Água de Lençóis</a>
+</div>
+
+<div class="container" id="catalogo">
+    <div class="intro-text">
+        <h3>O poder do natural</h3>
+        <p>P R O D U Ç Ã O &nbsp; A R T E S A N A L , &nbsp; D E L I C A D A &nbsp; E &nbsp; E F I C A Z</p>
+        <p>
+            Tudo foi pensado com o propósito de levar saúde para sua pele e cabelos e bem-estar para o seu corpo de forma
+            delicada e eficaz. Os óleos vegetais, as manteigas e ceras vão hidratar e nutrir, já os óleos essenciais irão tratar
+            questões mais amplas, eles agem no corpo e na alma!
+        </p>
+    </div>
+
+    <h2 id="sabonetes">Sabonetes</h2>
+    <div class="product-category">
+        <div class="product">
+            <h3>Carvão Ativado</h3>
+            <p>Desenvolvido especialmente para peles oleosas e acneicas. Pode também ser utilizado no couro cabeludo que se apresente oleoso.
+               A presença do carvão ativado junto aos óleos selecionados promoverá a desintoxicação da pele, controle da oleosidade e também agirá como fungicida e bactericida.
+            </p>
+            <p class="price">R$ 35</p>
+        </div>
+
+        <div class="product">
+            <h3>Coco Palmiste e Lavanda</h3>
+            <p>Desenvolvido para atender às necessidades das peles desidratadas, sem brilho, e dos cabelos que enfrentam esses mesmos desafios. Além disso, este produto auxilia em casos de fragilidade capilar, com óleos essenciais selecionados que nutrem o bulbo capilar, ajudando a prevenir a queda e promovendo o crescimento saudável dos fios.
+               Com óleos essenciais que atuam contra o estresse, ele também proporciona uma sensação de paz e tranquilidade.
+            </p>
+            <p class="price">R$ 35</p>
+        </div>
+
+        <div class="product">
+            <h3>Pura Oliva</h3>
+            <p>Este sabonete foi desenvolvido para atender a todo tipo de pele, em especial, peles sensíveis e delicadas.
+               Os óleos essenciais presentes na fórmula irão proporcionar o equilíbrio para a pele, mas também para o emocional, suscitando alegria, vigor e bem-estar.
+            </p>
+            <p class="price">R$ 35</p>
+        </div>
+
+        <div class="product">
+            <h3>Argila Preta e Vermelha</h3>
+            <p>Desenvolvido para atender às necessidades das peles maduras e desvitalizadas. Com ativos que combatem radicais livres, este sabonete estimula a produção de colágeno, melhorando a elasticidade e a vitalidade da pele.</p>
+            <p class="price">R$ 35</p>
+        </div>
+
+        <div class="product">
+            <h3>Infantil e Peles Sensíveis</h3>
+            <p>Formulado para peles infantis e delicadas, este sabonete garante uma hidratação suave, ideal para nutrir a pele sem irritá-la.</p>
+            <p class="price">R$ 35</p>
+        </div>
+
+        <div class="product">
+            <h3>Amazônia</h3>
+            <p>Sabonete com manteiga de cupuaçu, óleo de açaí e ingredientes da floresta Amazônica. Proporciona uma hidratação profunda e revitaliza a pele com um toque exótico e natural.</p>
+            <p class="price">R$ 38</p>
+        </div>
+    </div>
+
+    <h2 id="shampoos">Shampoos</h2>
+    <div class="product-category">
+        <div class="product">
+            <h3>Shampoo Fortalecedor de Alecrim</h3>
+            <p>Fortalece os fios, evita frizz e promove crescimento saudável do cabelo. Ideal para cabelos finos e quebradiços.</p>
+            <p class="price">R$ 40</p>
+        </div>
+    </div>
+
+    <h2 id="pomadas">Pomadas</h2>
+    <div class="product-category">
+        <div class="product">
+            <h3>Pomada para Psoríase</h3>
+            <p>Hidrata e promove cicatrização para peles com psoríase, ajudando a aliviar o desconforto e inflamações.</p>
+            <p class="price">R$ 60 | 30g</p>
+        </div>
+
+        <div class="product">
+            <h3>Pomada Alívio</h3>
+            <p>Elaborada para aliviar dores musculares e articulares, com ingredientes anti-inflamatórios naturais.</p>
+            <p class="price">R$ 60 | 100g</p>
+        </div>
+    </div>
+
+    <h2 id="desodorantes">Desodorantes</h2>
+    <div class="product-category">
+        <div class="product">
+            <h3>Desodorante Natural</h3>
+            <p>Vegano e livre de alumínio, com ingredientes naturais para garantir proteção sem desreguladores endócrinos.</p>
+            <p class="price">R$ 30 | 100g</p>
+        </div>
+    </div>
+
+    <h2 id="lip-balms">Lip Balms</h2>
+    <div class="product-category">
+        <div class="product">
+            <h3>Lip Balm com e sem cor</h3>
+            <p>Hidrata profundamente os lábios, evitando rachaduras, com ingredientes naturais como óleo de pracaxi e manteiga de cacau.</p>
+            <p class="price">R$ 12</p>
+        </div>
+    </div>
+
+    <h2 id="roll-ons">Roll-ons</h2>
+    <div class="product-category">
+        <div class="product">
+            <h3>Calma e Equilíbrio</h3>
+            <p>Blend de óleos essenciais para atenuar sintomas de ansiedade e insônia.</p>
+            <p class="price">R$ 80</p>
+        </div>
+
+        <div class="product">
+            <h3>Foco e Concentração</h3>
+            <p>Blend de óleos essenciais que promove foco e atenção durante o dia-a-dia.</p>
+            <p class="price">R$ 80</p>
+        </div>
+    </div>
+
+    <h2 id="envelopes-aromaticos">Envelopes Aromáticos</h2>
+    <div class="product-category">
+        <div class="product">
+            <h3>Lavanda</h3>
+            <p>Aromatizador para ambientes com óleo essencial de lavanda, promovendo relaxamento.</p>
+            <p class="price">R$ 10</p>
+        </div>
+
+        <div class="product">
+            <h3>Laranja e Canela</h3>
+            <p>Combinação energizante e acolhedora para aromatizar ambientes com toque cítrico e especiarias.</p>
+            <p class="price">R$ 10</p>
+        </div>
+
+        <div class="product">
+            <h3>Fresh</h3>
+            <p>Aroma cítrico refrescante para revitalizar o ambiente.</p>
+            <p class="price">R$ 10</p>
+        </div>
+
+        <div class="product">
+            <h3>Capim-limão</h3>
+            <p>Revitaliza e purifica o ambiente com óleo essencial de capim-limão.</p>
+            <p class="price">R$ 10</p>
+        </div>
+    </div>
+
+    <h2 id="velas-aromaticas">Velas Aromáticas</h2>
+    <div class="product-category">
+        <div class="product">
+            <h3>Paz e Alegria</h3>
+            <p>Vela com blend de óleos essenciais que promovem calma e bem-estar emocional.</p>
+            <p class="price">R$ 80 | 150g</p>
+        </div>
+
+        <div class="product">
+            <h3>Energia</h3>
+            <p>Blend de óleos que restaura a vitalidade e disposição.</p>
+            <p class="price">R$ 80 | 150g</p>
+        </div>
+    </div>
+
+    <h2 id="difusores">Difusores de Ambiente</h2>
+    <div class="product-category">
+        <div class="product">
+            <h3>Relax</h3>
+            <p>Blend de óleos essenciais que promove relaxamento e melhora a qualidade de vida.</p>
+            <p class="price">R$ 60 | 300ml</p>
+        </div>
+
+        <div class="product">
+            <h3>Foco e Atenção</h3>
+            <p>Auxilia na recuperação do foco e clareza mental para manter a produtividade.</p>
+            <p class="price">R$ 60 | 300ml</p>
+        </div>
+    </div>
+
+    <h2 id="home-sprays">Home Sprays</h2>
+    <div class="product-category">
+        <div class="product">
+            <h3>Relax</h3>
+            <p>Spray de ambiente que alivia o estresse e promove um relaxamento suave.</p>
+            <p class="price">R$ 59 | 250ml</p>
+        </div>
+
+        <div class="product">
+            <h3>Energia</h3>
+            <p>Restaurador de vitalidade e disposição com poder revitalizante das plantas.</p>
+            <p class="price">R$ 59 | 250ml</p>
+        </div>
+
+        <div class="product">
+            <h3>Ar Puro</h3>
+            <p>Blend de óleos essenciais com propriedades antissépticas para melhorar a qualidade do ar.</p>
+            <p class="price">R$ 59 | 250ml</p>
+        </div>
+    </div>
+
+    <h2 id="agua-de-lencois">Água de Lençóis</h2>
+    <div class="product-category">
+        <div class="product">
+            <h3>Bons Sonhos</h3>
+            <p>Blend de óleos que ajuda a relaxar e promove uma noite de sono tranquila.</p>
+            <p class="price">R$ 40 | 175ml</p>
+        </div>
+
+        <div class="product">
+            <h3>Afrodisíaca</h3>
+            <p>Estimulante da sensualidade e paixão, com combinação de óleos que despertam os sentidos.</p>
+            <p class="price">R$ 40 | 175ml</p>
+        </div>
+    </div>
+
+    <div class="download-pdf">
+        <a href="files/catalogo-setembro.pdf" download="catalogo_breeze.pdf">Baixar Catálogo PDF</a>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2024 Breeze Cosméticos - Saúde e bem-estar para sua pele e cabelos</p>
+        <img src="images/logo.png" alt="Logotipo da Breeze Cosméticos">
+    </div>
+</footer>
+
+</body>
+</html>
