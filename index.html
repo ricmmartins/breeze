@@ -29,11 +29,13 @@
         }
 
         nav .menu {
-            width: 960px;
+            width: 100%;
+            max-width: 960px;
             margin: 0 auto;
             display: flex;
             justify-content: flex-end;
             align-items: center;
+            flex-wrap: wrap; /* Permite que os itens quebrem linha em telas menores */
         }
 
         nav .menu a {
@@ -58,7 +60,8 @@
         }
 
         header .header-content {
-            width: 960px;
+            width: 100%;
+            max-width: 960px;
             margin: 0 auto;
             text-align: center;
         }
@@ -75,8 +78,9 @@
         .category-nav {
             background-color: #f2f2f2;
             padding: 15px;
-            margin: 20px 0;
+            margin: 20px auto;
             text-align: center;
+            max-width: 960px;
         }
 
         .category {
@@ -113,13 +117,15 @@
         }
 
         .container {
-            width: 960px;
+            width: 100%;
+            max-width: 960px;
             margin: 0 auto;
             padding: 20px;
         }
 
         h2 {
             color: #5d737e;
+            text-align: center;
         }
 
         .intro-text {
@@ -199,13 +205,15 @@
         }
 
         footer .footer-content {
-            width: 960px;
+            width: 100%;
+            max-width: 960px;
             margin: 0 auto;
             text-align: center;
         }
 
         footer img {
-            max-width: 200px;
+            max-width: 100%;
+            height: auto;
         }
 
         /* Responsividade */
@@ -213,33 +221,34 @@
             nav .menu {
                 flex-direction: column;
                 align-items: center;
-                width: 100%;
             }
 
             nav .menu a {
                 margin: 10px 0;
             }
 
-            header .header-content {
-                width: 100%;
+            header .header-content,
+            .container,
+            .category-nav,
+            footer .footer-content {
                 padding: 0 20px;
             }
 
-            .container {
-                width: 100%;
-                padding: 0 20px;
-            }
-
-            .product-category {
-                margin-bottom: 30px;
+            .intro-text h3 {
+                font-size: 1.8em;
             }
 
             .product {
                 padding: 15px;
             }
 
-            footer .footer-content {
-                width: 100%;
+            .product h3 {
+                font-size: 1.3em;
+            }
+
+            .download-pdf a {
+                padding: 12px 20px;
+                font-size: 1.1em;
             }
         }
 
@@ -248,8 +257,16 @@
                 font-size: 1.5em;
             }
 
+            .intro-text p {
+                font-size: 1em;
+            }
+
             .product h3 {
                 font-size: 1.2em;
+            }
+
+            .product p {
+                font-size: 0.9em;
             }
 
             .download-pdf a {
@@ -279,7 +296,7 @@
 </header>
 
 <!-- Menu de navegação das categorias expandíveis -->
-<h2 style="text-align: center;">Categorias de Produtos</h2>
+<h2>Categorias de Produtos</h2>
 <div class="category-nav">
     <div class="category" onclick="toggleCategory('corpo')">Corpo</div>
     <div id="corpo" class="subcategories">
@@ -322,13 +339,12 @@
         <div class="product">
             <h3>Carvão Ativado</h3>
             <p>Desenvolvido especialmente para peles oleosas e
-acneicas. Pode também ser utilizado no couro cabelo que
-também se apresente oleoso.
+acneicas. Pode também ser utilizado no couro cabeludo que
+também se apresenta oleoso.
 A presença do carvão ativado junto aos óleos selecionados
 promoverá a desintoxicação da pele, controle da
-oleosidade e também agirá como fungicidade e
-bactericida.
-</p>
+oleosidade e também agirá como fungicida e
+bactericida.</p>
             <p class="price">R$ 35</p>
         </div>
         <div class="product">
@@ -348,10 +364,10 @@ tranquilidade.</p>
             <h3>Pura Oliva</h3>
             <p>Este sabonete foi desenvolvido para atender a todo tipo
 de pele. Em especial, peles sensíveis e delicadas.
-Os óleos essenciais presentes na formula irão
+Os óleos essenciais presentes na fórmula irão
 proporcionar o equilíbrio para a pele mas também para o
 emocional, por se tratarem de óleos que suscitam alegria,
-vigor e bem-estar</p>
+vigor e bem-estar.</p>
             <p class="price">R$ 35</p>
         </div>
         <div class="product">
@@ -372,10 +388,10 @@ de promover alegria de viver.</p>
         <div class="product">
             <h3>Infantil e Peles Sensíveis</h3>
             <p>Desenvolvido para atender aos cuidados especiais que
-peles infantis e sensiveis necessitam. Os ácidos graxos
+peles infantis e sensíveis necessitam. Os ácidos graxos
 presentes nos óleos vegetais são encontrados também na
-pele humada e fazem parte do processo de manutenção
-da hidratação e da manutenção da flexibilidade e maciez
+pele humana e fazem parte do processo de manutenção
+da hidratação e da flexibilidade e maciez
 da pele.</p>
             <p class="price">R$ 35</p>
         </div>
@@ -398,7 +414,7 @@ Ideal para quem busca uma pele macia e protegida.</p>
             <h3>Shampoo Fortalecedor de Alecrim</h3>
             <p>Desenvolvido para atender a demanda de cabelos que
 precisam ser fortalecidos, por meio de uma formulação
-que irá proporcional uma blindagem ao fio, evitar o frizz, a
+que irá proporcionar uma blindagem ao fio, evitar o frizz, a
 formação de ponta dupla e auxiliar no crescimento. É
 indicado também para auxiliar na penteabilidade,
 definição de cachos e selamento de cutículas.</p>
@@ -438,11 +454,11 @@ e um melhor bem-estar.</p>
     <div class="product-category">
         <div class="product">
             <h3>Desodorante Natural</h3>
-            <p>O desodorante natural foi elaborado à partir de matérias
+            <p>O desodorante natural foi elaborado a partir de matérias
 primas vegetais. Totalmente vegano, sua composição se
 torna livre de ingredientes nocivos à saúde como lauril,
-parabenos, petrolados e alumínio, que agem como
-desruptores endócrinos</p>
+parabenos, petrolatos e alumínio, que agem como
+desruptores endócrinos.</p>
             <p class="price">R$ 30 | 100g</p>
         </div>
     </div>
@@ -452,8 +468,8 @@ desruptores endócrinos</p>
         <div class="product">
             <h3>Lip Balm com e sem cor</h3>
             <p>Ideal para manter a hidratação dos lábios e evitar
-rachaduras. Elaborado com óleo de pracaxi, maneiga de
-cacau, cera de carnaúba, óleo resina de alecrim, absoluta
+rachaduras. Elaborado com óleo de pracaxi, manteiga de
+cacau, cera de carnaúba, óleo resina de alecrim, absoluto
 de cacau e absoluto de baunilha, o lip balm vai oferecer
 uma ação hidratante muito potente.</p>
             <p class="price">R$ 12</p>
@@ -466,7 +482,7 @@ uma ação hidratante muito potente.</p>
             <h3>Calma e Equilíbrio</h3>
             <p>Blend de óleos essenciais que podem ser aplicados em
 pontos vitais com o objetivo de atenuar sintomas de
-ansiedade, insônia e outras questões e desequilibrios
+ansiedade, insônia e outros desequilíbrios
 emocionais.</p>
             <p class="price">R$ 80</p>
         </div>
@@ -474,7 +490,7 @@ emocionais.</p>
             <h3>Foco e Concentração</h3>
             <p>Blend de óleos essenciais que podem ser aplicados em
 pontos vitais com o objetivo de trazer mais foco e
-concentração ao seu dia-a-dia.</p>
+concentração ao seu dia a dia.</p>
             <p class="price">R$ 80</p>
         </div>
     </div>
@@ -501,8 +517,7 @@ criando uma atmosfera vibrante e revigorante.</p>
             <h3>Fresh</h3>
             <p>Envelope aromático Fresh, ideal para ambientes, oferece
 um aroma cítrico e refrescante que energiza o espaço,
-promovendo uma atmosfera revigorante e purificadora
-</p>
+promovendo uma atmosfera revigorante e purificadora.</p>
             <p class="price">R$ 10</p>
         </div>
         <div class="product">
@@ -510,8 +525,7 @@ promovendo uma atmosfera revigorante e purificadora
             <p>Envelope aromático com óleo essencial de capim-limão,
 ideal para ambientes. Oferece um aroma fresco e
 revitalizante, purificando o espaço e trazendo uma
-sensação de leveza e energia renovada.
-</p>
+sensação de leveza e energia renovada.</p>
             <p class="price">R$ 10</p>
         </div>
     </div>
@@ -544,8 +558,7 @@ vitalidade e disposição.</p>
             <h3>Relax</h3>
             <p>Este blend de óleos essenciais foi cuidadosamente
 formulado para amenizar os efeitos do estresse no corpo
-ao trazer calma e tranquilidade para o seu ambiente.
-</p>
+ao trazer calma e tranquilidade para o seu ambiente.</p>
             <p class="price">R$ 60 | 300ml</p>
         </div>
         <div class="product">
@@ -606,8 +619,7 @@ tranquila e revigorante.</p>
 objetivo de estimular a sensualidade e a paixão. A
 combinação selecionada agirá sinergicamente
 despertando os sentidos e convidando à intimidade e
-expressão da sexualidade.
-</p>
+expressão da sexualidade.</p>
             <p class="price">R$ 40 | 175ml</p>
         </div>
     </div>
