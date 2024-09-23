@@ -60,13 +60,15 @@
         }
 
         header .header-content {
-            width: 960px;
+            width: 100%;
+            max-width: 960px;
             margin: 0 auto;
             text-align: center;
         }
 
         .container {
-            width: 960px;
+            width: 100%;
+            max-width: 960px;
             margin: 0 auto;
             padding: 20px;
             text-align: center;
@@ -106,13 +108,15 @@
         }
 
         footer .footer-content {
-            width: 960px;
+            width: 100%;
+            max-width: 960px;
             margin: 0 auto;
             text-align: center;
         }
 
         footer img {
-            max-width: 200px;
+            max-width: 100%;
+            height: auto;
         }
 
         /* Responsividade */
@@ -128,11 +132,8 @@
                 font-size: 1.1em;
             }
 
-            header .header-content,
-            .container,
-            footer .footer-content {
-                width: 100%;
-                padding: 0 20px;
+            header {
+                margin-top: 80px; /* Ajuste para o aumento do menu em telas menores */
             }
 
             .contact {
@@ -155,7 +156,7 @@
             }
 
             .contact a {
-                font-size: 1.1em;
+                font-size: 1em;
             }
         }
     </style>
