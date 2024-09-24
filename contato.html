@@ -26,14 +26,14 @@
             left: 0;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         nav .menu {
-            width: 100%;
-            max-width: 960px;
-            margin: 0 auto;
             display: flex;
-            justify-content: flex-end; /* Alinha o menu a direita */
+            justify-content: center;
             align-items: center;
         }
 
@@ -48,6 +48,13 @@
 
         nav .menu a:hover {
             color: #85a392;
+        }
+
+        /* Ícone do menu sanduíche */
+        .menu-toggle {
+            display: none;
+            font-size: 2em;
+            cursor: pointer;
         }
 
         /* Compensação para o menu fixo */
@@ -114,7 +121,7 @@
         }
 
         footer img {
-            max-width: 150px; /* Ajuste para o tamanho do logotipo */
+            max-width: 200px;
             width: 100%;
             height: auto;
         }
@@ -122,12 +129,24 @@
         /* Responsividade */
         @media (max-width: 768px) {
             nav .menu {
+                display: none;
                 flex-direction: column;
                 align-items: center;
+                width: 100%;
+            }
+
+            nav .menu.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+                color: white;
             }
 
             nav .menu a {
                 margin: 10px 0;
+                font-size: 1.5em;
             }
 
             header {
@@ -163,6 +182,8 @@
 
 <!-- Menu fixo -->
 <nav>
+    <!-- Ícone do menu "sanduíche" -->
+    <span class="menu-toggle" onclick="toggleMenu()">&#9776;</span>
     <div class="menu">
         <a href="index.html">Página Principal</a>
         <a href="index.html#catalogo">Catálogo</a>
@@ -172,6 +193,7 @@
 
 <header>
     <div class="header-content">
+        <h1>Contato</h1>
         <p>Entre em contato com Breeze Cosméticos</p>
     </div>
 </header>
@@ -182,7 +204,7 @@
         <p>Email: <a href="mailto:contato@breeze.skin">contato@breeze.skin</a></p>
         <p>Telefone: (21) 98892-9477</p>
         <p><a href="https://wa.me/5521988929477?text=Ola,%20gostaria%20de%20saber%20mais%20sobre%20a%20breeze%20e%20seus%20produtos">Envie uma mensagem via WhatsApp</a></p>
-        <p>Siga-nos nas redes sociais para ficar por dentro das novidades: <a href="https://www.instagram.com/breeze.cosmeticos/">Instagram</a></p> 
+        <p>Siga-nos nas redes sociais para ficar por dentro das novidades: <a href="https://www.instagram.com/breeze.cosmeticos/">Instagram</a></p>
     </div>
 </div>
 
@@ -192,6 +214,13 @@
         <img src="images/logo.png" alt="Logotipo da Breeze Cosméticos">
     </div>
 </footer>
+
+<script>
+    function toggleMenu() {
+        const menu = document.querySelector('.menu');
+        menu.classList.toggle('active');
+    }
+</script>
 
 </body>
 </html>
