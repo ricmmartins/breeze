@@ -34,8 +34,8 @@
             margin: 0 auto;
             display: flex;
             justify-content: flex-end;
-            padding-right: 15px; /* Adiciona espaço à direita */
             align-items: center;
+            padding-right: 15px;
         }
 
         nav .menu a {
@@ -49,6 +49,17 @@
 
         nav .menu a:hover {
             color: #85a392;
+        }
+
+        /* Sanduíche Menu para Mobile */
+        .menu-icon {
+            display: none;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        .menu.collapsed {
+            display: none;
         }
 
         /* Compensação para o menu fixo */
@@ -122,10 +133,18 @@
 
         /* Responsividade */
         @media (max-width: 768px) {
+            .menu-icon {
+                display: block;
+            }
+
             nav .menu {
                 flex-direction: column;
-                align-items: flex-end;
-                padding-right: 20px;
+                align-items: flex-start;
+                padding: 0 20px;
+            }
+
+            nav .menu.collapsed {
+                display: flex;
             }
 
             nav .menu a {
@@ -166,7 +185,8 @@
 
 <!-- Menu fixo -->
 <nav>
-    <div class="menu">
+    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+    <div class="menu collapsed">
         <a href="index.html">Página Principal</a>
         <a href="index.html#catalogo">Catálogo</a>
         <a href="contato.html">Contato</a>
@@ -186,7 +206,7 @@
         <p>Email: <a href="mailto:contato@breeze.skin">contato@breeze.skin</a></p>
         <p>Telefone: (21) 98892-9477</p>
         <p><a href="https://wa.me/5521988929477?text=Ola,%20gostaria%20de%20saber%20mais%20sobre%20a%20breeze%20e%20seus%20produtos">Envie uma mensagem via WhatsApp</a></p>
-        <p>Siga-nos nas redes sociais para ficar por dentro das novidades: <a href="https://www.instagram.com/breeze.cosmeticos/">Instagram</a></p> 
+        <p>Siga-nos nas redes sociais para ficar por dentro das novidades: <a href="https://www.instagram.com/breeze.cosmeticos/">Instagram</a></p>
     </div>
 </div>
 
@@ -196,6 +216,13 @@
         <img src="images/logo.png" alt="Logotipo da Breeze Cosméticos">
     </div>
 </footer>
+
+<script>
+    function toggleMenu() {
+        const menu = document.querySelector('.menu');
+        menu.classList.toggle('collapsed');
+    }
+</script>
 
 </body>
 </html>
