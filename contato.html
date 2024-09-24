@@ -33,8 +33,7 @@
             max-width: 960px;
             margin: 0 auto;
             display: flex;
-            justify-content: flex-end;
-            padding-right: 15px; /* Adiciona espaço à direita */
+            justify-content: space-between;
             align-items: center;
         }
 
@@ -49,6 +48,24 @@
 
         nav .menu a:hover {
             color: #85a392;
+        }
+
+        /* Hamburger Menu for mobile */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+        }
+
+        .menu-links {
+            display: flex;
         }
 
         /* Compensação para o menu fixo */
@@ -115,27 +132,35 @@
         }
 
         footer img {
-    max-width: 200px;
-    width: 100%;
-    height: auto;
-}
-
+            max-width: 200px;
+            width: 100%;
+            height: auto;
+        }
 
         /* Responsividade */
         @media (max-width: 768px) {
             nav .menu {
-                flex-direction: column;
-                align-items: flex-end;
-                padding-right: 20px; /* Espaçamento à direita para telas menores */
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
             }
 
-            nav .menu a {
-                margin: 10px 0;
-                font-size: 1.1em;
+            nav .menu-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+
+            nav .menu-toggle {
+                display: flex;
+            }
+
+            nav .menu-links.active {
+                display: flex;
             }
 
             header {
-                margin-top: 80px; /* Ajuste para o aumento do menu em telas menores */
+                margin-top: 80px;
             }
 
             .contact {
@@ -168,9 +193,16 @@
 <!-- Menu fixo -->
 <nav>
     <div class="menu">
-        <a href="index.html">Página Principal</a>
-        <a href="index.html#catalogo">Catálogo</a>
-        <a href="contato.html">Contato</a>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="menu-links">
+            <a href="index.html">Página Principal</a>
+            <a href="index.html#catalogo">Catálogo</a>
+            <a href="contato.html">Contato</a>
+        </div>
     </div>
 </nav>
 
@@ -197,6 +229,13 @@
         <img src="images/logo.png" alt="Logotipo da Breeze Cosméticos">
     </div>
 </footer>
+
+<script>
+    function toggleMenu() {
+        var menuLinks = document.querySelector('.menu-links');
+        menuLinks.classList.toggle('active');
+    }
+</script>
 
 </body>
 </html>
