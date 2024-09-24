@@ -33,9 +33,8 @@
             max-width: 960px;
             margin: 0 auto;
             display: flex;
-            justify-content: flex-end;
+            justify-content: flex-end; /* Alinha o menu à direita */
             align-items: center;
-            padding-right: 15px;
         }
 
         nav .menu a {
@@ -49,17 +48,6 @@
 
         nav .menu a:hover {
             color: #85a392;
-        }
-
-        /* Sanduíche Menu para Mobile */
-        .menu-icon {
-            display: none;
-            font-size: 1.5em;
-            cursor: pointer;
-        }
-
-        .menu.collapsed {
-            display: none;
         }
 
         /* Compensação para o menu fixo */
@@ -126,34 +114,24 @@
         }
 
         footer img {
-            max-width: 200px;
+            max-width: 150px; /* Ajuste para o tamanho do logotipo */
             width: 100%;
             height: auto;
         }
 
         /* Responsividade */
         @media (max-width: 768px) {
-            .menu-icon {
-                display: block;
-            }
-
             nav .menu {
                 flex-direction: column;
-                align-items: flex-start;
-                padding: 0 20px;
-            }
-
-            nav .menu.collapsed {
-                display: flex;
+                align-items: flex-end;
             }
 
             nav .menu a {
                 margin: 10px 0;
-                font-size: 1.1em;
             }
 
             header {
-                margin-top: 80px;
+                margin-top: 80px; /* Ajuste para o aumento do menu em telas menores */
             }
 
             .contact {
@@ -185,8 +163,7 @@
 
 <!-- Menu fixo -->
 <nav>
-    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
-    <div class="menu collapsed">
+    <div class="menu">
         <a href="index.html">Página Principal</a>
         <a href="index.html#catalogo">Catálogo</a>
         <a href="contato.html">Contato</a>
@@ -206,7 +183,7 @@
         <p>Email: <a href="mailto:contato@breeze.skin">contato@breeze.skin</a></p>
         <p>Telefone: (21) 98892-9477</p>
         <p><a href="https://wa.me/5521988929477?text=Ola,%20gostaria%20de%20saber%20mais%20sobre%20a%20breeze%20e%20seus%20produtos">Envie uma mensagem via WhatsApp</a></p>
-        <p>Siga-nos nas redes sociais para ficar por dentro das novidades: <a href="https://www.instagram.com/breeze.cosmeticos/">Instagram</a></p>
+        <p>Siga-nos nas redes sociais para ficar por dentro das novidades: <a href="https://www.instagram.com/breeze.cosmeticos/">Instagram</a></p> 
     </div>
 </div>
 
@@ -216,13 +193,6 @@
         <img src="images/logo.png" alt="Logotipo da Breeze Cosméticos">
     </div>
 </footer>
-
-<script>
-    function toggleMenu() {
-        const menu = document.querySelector('.menu');
-        menu.classList.toggle('collapsed');
-    }
-</script>
 
 </body>
 </html>
