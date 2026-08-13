@@ -23,7 +23,7 @@ window.BREEZE_PRODUCTS = [
   ["envelope-lavanda", "Envelope Lavanda", "Envelopes Aromáticos", "ambientes", "Relaxamento", "10 G", "Aroma suave de lavanda para espaços tranquilos e acolhedores.", "Envelope aromático com óleo essencial de lavanda para perfumar gavetas, armários e pequenos ambientes."],
   ["envelope-laranja-canela", "Envelope Laranja e Canela", "Envelopes Aromáticos", "ambientes", "Aconchego", "10 G", "Notas cítricas e quentes para uma atmosfera energizante.", "Combina o frescor da laranja com a presença acolhedora da canela para perfumar pequenos espaços."],
   ["vela-paz-alegria", "Vela Paz e Alegria", "Velas Aromáticas", "ambientes", "Leveza", "150 G", "Luz e aroma para tornar o ambiente mais leve e acolhedor.", "Vela artesanal com um blend de óleos essenciais escolhido para acompanhar momentos de calma e bem-estar."],
-  ["vela-energia", "Vela Energia", "Velas Aromáticas", "ambientes", "Vitalidade", "150 G", "Uma combinação aromática vibrante para renovar o ambiente.", "Vela artesanal com notas escolhidas para criar uma atmosfera estimulante e cheia de presença."],
+  ["vela-energia", "Vela Energia — Laranja & Canela", "Velas Aromáticas", "ambientes", "Ânimo e vitalidade", "150 G", "Laranja, canela, lavanda e bergamota para renovar as energias do ambiente.", "Criada para trazer ânimo e vitalidade ao dia a dia. O aroma cítrico da laranja oferece leveza e frescor, enquanto a canela acrescenta uma presença quente e estimulante. Composição: cera de coco, óleos essenciais de laranja, lavanda e canela, e essência de bergamota (1%)."],
   ["difusor-relax", "Difusor Relax", "Difusores", "ambientes", "Calma e aconchego", "300 ML", "Um blend aromático pensado para trazer leveza e tranquilidade.", "Difusor com óleos essenciais selecionados para perfumar continuamente e criar um ambiente sereno."],
   ["difusor-foco", "Difusor Foco e Atenção", "Difusores", "ambientes", "Concentração", "300 ML", "Notas frescas para espaços de trabalho, estudo e criação.", "Blend aromático desenvolvido para acompanhar tarefas que pedem clareza e concentração."],
   ["difusor-capim-limao", "Difusor Capim-limão", "Difusores", "ambientes", "Frescor", "300 ML", "Aroma cítrico e herbal para ambientes revigorantes.", "O perfume fresco do capim-limão ajuda a criar uma atmosfera leve, agradável e acolhedora."],
@@ -35,5 +35,6 @@ window.BREEZE_PRODUCTS = [
   ["aroma-stick-respire", "Aroma Stick Respire", "Aroma Sticks", "ambientes", "Frescor", "", "Aroma refrescante e portátil para uma sensação de ar renovado.", "Blend de óleos essenciais com notas frescas para usar em pequenos momentos de pausa ao longo do dia."],
   ["aroma-stick-foco", "Aroma Stick Foco", "Aroma Sticks", "ambientes", "Presença", "", "Um ritual aromático compacto para tarefas que pedem clareza.", "Blend portátil de óleos essenciais para acompanhar momentos de estudo, trabalho e criação."]
 ].map(([id, name, category, group, tag, size, summary, description]) => ({
-  id, name, category, group, tag, size, summary, description, image: "images/header.png"
+  id, name, category, group, tag, size, summary, description,
+  image: id === "vela-energia" ? "images/products/vela-energia.png" : "images/header.png"
 }));
