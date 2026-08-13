@@ -17,6 +17,7 @@ window.BREEZE_PRODUCTS = [
   ["lip-balm-sem-cor", "Lip Balm sem Cor", "Cuidados labiais", "pele", "Hidratação diária", "4,5 ML", "Proteção e maciez para os lábios, sem adicionar cor.", "Uma combinação nutritiva de óleos, manteigas e ceras vegetais para prevenir o ressecamento e manter o conforto dos lábios."],
   ["roll-on-calma", "Calma e Equilíbrio", "Roll-ons", "pele", "Bem-estar", "10 ML", "Blend aromático para momentos de pausa, calma e equilíbrio.", "Roll-on de óleos essenciais para aplicar em pontos vitais e incorporar a pequenos rituais de relaxamento."],
   ["roll-on-foco", "Foco e Concentração", "Roll-ons", "pele", "Clareza", "10 ML", "Aroma estimulante para acompanhar tarefas que pedem presença.", "Blend de óleos essenciais em formato roll-on, pensado para trazer uma sensação aromática de clareza à rotina."],
+  ["roll-on-bons-sonhos", "Roll-on Bons Sonhos", "Roll-ons", "pele", "Ritual noturno", "10 ML", "Sinergia aromática para desacelerar e preparar corpo e mente para o descanso.", "Combina óleos essenciais de candeia, camará, laranja-doce, rosa, manjerona, ylang-ylang, lavanda e copaíba em um ritual noturno de relaxamento. Modo de usar: aplique nos pulsos, têmporas ou atrás das orelhas antes de dormir."],
   ["strong-nails", "Strong Nails", "Fortalecedores", "pele", "Unhas", "10 ML", "Óleos naturais para hidratar e fortalecer unhas frágeis.", "Formulado com óleo vegetal de rícino e óleos essenciais selecionados para nutrir unhas e cutículas."],
   ["strong-hair", "Strong Hair", "Fortalecedores", "cabelos", "Nutrição capilar", "30 ML", "Óleos vegetais e essenciais para nutrir e fortalecer os fios.", "Combina pracaxi, abacate, alecrim, copaíba e laranja em um tratamento nutritivo para a rotina capilar."],
   ["strong-brows", "Strong Brows", "Fortalecedores", "pele", "Sobrancelhas", "4,5 ML", "Cuidado nutritivo para sobrancelhas mais fortes e definidas.", "Fórmula natural com óleos vegetais e essenciais para hidratar e complementar o cuidado diário das sobrancelhas."],
@@ -36,5 +37,8 @@ window.BREEZE_PRODUCTS = [
   ["aroma-stick-foco", "Aroma Stick Foco", "Aroma Sticks", "ambientes", "Presença", "", "Um ritual aromático compacto para tarefas que pedem clareza.", "Blend portátil de óleos essenciais para acompanhar momentos de estudo, trabalho e criação."]
 ].map(([id, name, category, group, tag, size, summary, description]) => ({
   id, name, category, group, tag, size, summary, description,
-  image: id === "vela-energia" ? "images/products/vela-energia.png" : "images/header.png"
+  image: {
+    "vela-energia": "images/products/vela-energia.png",
+    "roll-on-bons-sonhos": "images/products/roll-on-bons-sonhos.png"
+  }[id] || "images/header.png"
 }));
