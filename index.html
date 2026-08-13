@@ -1,680 +1,752 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Breeze Cosméticos: produtos artesanais e naturais para saúde, bem-estar e cuidados com pele e cabelos. Catálogo de sabonetes, shampoos, velas aromáticas e mais.">
-    <title>Breeze Cosméticos</title>
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Breeze Cosméticos: produtos naturais, veganos e artesanais para pele, cabelos e ambientes.">
+  <title>Breeze Cosméticos — O cuidado que vem da natureza</title>
+  <script>
+    (() => {
+      const param = new URLSearchParams(window.location.search).get("scoutTheme");
+      const theme =
+        param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <style>
+    :root {
+      color-scheme: light;
+      --cp-bg: #f7f4ef;
+      --cp-bg-elevated: #fcfbf8;
+      --cp-surface: #ffffff;
+      --cp-surface-soft: #f5f5f5;
+      --cp-border: #dedede;
+      --cp-border-strong: #919191;
+      --cp-text: #242424;
+      --cp-text-muted: #5c5c5c;
+      --cp-text-soft: #6f6f6f;
+      --cp-accent: #157864;
+      --cp-accent-hover: #0f6554;
+      --cp-accent-soft: rgba(21, 120, 100, 0.08);
+      --cp-accent-fg: #ffffff;
+      --cp-success: #16a34a;
+      --cp-danger: #dc2626;
+      --cp-warning: #f59e0b;
+      --cp-link: #0078d4;
+      --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.12);
+      --cp-overlay: rgba(255, 255, 255, 0.8);
+      --cp-panel: rgba(255, 255, 255, 0.86);
+      --cp-panel-strong: rgba(255, 255, 255, 0.96);
+      --cp-sheen: rgba(255, 255, 255, 0.55);
+      --cp-highlight: rgba(21, 120, 100, 0.12);
+      --cp-brand-deep: #dcebe5;
+      --cp-brand-deep-text: #173b33;
+      --cp-brand-deep-muted: #42665d;
+    }
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --cp-bg: #3d3b3a;
+      --cp-bg-elevated: #343231;
+      --cp-surface: #292929;
+      --cp-surface-soft: #2e2e2e;
+      --cp-border: #474747;
+      --cp-border-strong: #5f5f5f;
+      --cp-text: #dedede;
+      --cp-text-muted: #919191;
+      --cp-text-soft: #b0b0b0;
+      --cp-accent: #75d9c3;
+      --cp-accent-hover: #91e4d2;
+      --cp-accent-soft: rgba(117, 217, 195, 0.14);
+      --cp-accent-fg: #1a1a1a;
+      --cp-success: #4ade80;
+      --cp-danger: #f87171;
+      --cp-warning: #fbbf24;
+      --cp-link: #4da6ff;
+      --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+      --cp-overlay: rgba(41, 41, 41, 0.88);
+      --cp-panel: rgba(41, 41, 41, 0.72);
+      --cp-panel-strong: rgba(41, 41, 41, 0.96);
+      --cp-sheen: rgba(255, 255, 255, 0.04);
+      --cp-highlight: rgba(117, 217, 195, 0.12);
+      --cp-brand-deep: #254f46;
+      --cp-brand-deep-text: #f7f4ef;
+      --cp-brand-deep-muted: #c5d8d2;
+    }
 
-        /* Estilos do menu fixo */
-        nav {
-            background-color: #5d737e;
-            color: white;
-            padding: 10px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--cp-bg);
+      color: var(--cp-text);
+      font-family: "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    button, input { font: inherit; }
 
-        nav .menu {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid var(--cp-border);
+      background: var(--cp-panel-strong);
+    }
+    .nav, .wrap {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+    .brand { width: 156px; }
+    .brand img { width: 100%; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 14px;
+      font-weight: 650;
+    }
+    .nav-links a { text-decoration: none; }
+    .button {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid var(--cp-accent);
+      border-radius: 0.625rem;
+      padding: 0 20px;
+      background: var(--cp-accent);
+      color: var(--cp-accent-fg);
+      text-decoration: none;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .button:hover { background: var(--cp-accent-hover); }
+    .button.secondary {
+      background: transparent;
+      color: var(--cp-text);
+      border-color: var(--cp-border-strong);
+    }
 
-        nav .menu a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.2em;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
+    .hero {
+      min-height: 680px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+      background: var(--cp-bg-elevated);
+    }
+    .hero-copy {
+      width: min(590px, calc(100% - 40px));
+      margin-left: auto;
+      padding: 112px 56px 92px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .eyebrow {
+      margin: 0 0 20px;
+      color: var(--cp-accent);
+      font-size: 13px;
+      font-weight: 750;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    h1, h2, .quote {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
+      letter-spacing: -0.035em;
+    }
+    h1 {
+      max-width: 610px;
+      margin: 0;
+      font-size: clamp(54px, 6vw, 86px);
+      line-height: 0.98;
+    }
+    .hero-copy > p:not(.eyebrow) {
+      max-width: 520px;
+      margin: 28px 0 32px;
+      color: var(--cp-text-muted);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-media { position: relative; overflow: hidden; }
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      min-height: 680px;
+      object-fit: cover;
+    }
 
-        nav .menu a:hover {
-            color: #85a392;
-        }
+    .values {
+      border-top: 1px solid var(--cp-border);
+      border-bottom: 1px solid var(--cp-border);
+      background: var(--cp-surface);
+    }
+    .values .wrap {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .value {
+      padding: 30px;
+      text-align: center;
+      color: var(--cp-text-muted);
+      font-size: 14px;
+    }
+    .value + .value { border-left: 1px solid var(--cp-border); }
+    .value strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--cp-text);
+      font-size: 15px;
+    }
 
-        /* Ícone do menu sanduíche */
-        .menu-toggle {
-            display: none;
-            font-size: 2em;
-            cursor: pointer;
-        }
+    section { padding: 96px 0; }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 36px;
+    }
+    .section-head h2 {
+      max-width: 660px;
+      margin: 0;
+      font-size: clamp(38px, 5vw, 62px);
+      line-height: 1.05;
+    }
+    .section-head p {
+      max-width: 420px;
+      margin: 0;
+      color: var(--cp-text-muted);
+      line-height: 1.65;
+    }
+    .catalog-tools {
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) auto;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .search {
+      min-height: 48px;
+      border: 1px solid var(--cp-border);
+      border-radius: 0.625rem;
+      padding: 0 16px;
+      background: var(--cp-surface);
+      color: var(--cp-text);
+    }
+    .catalog-count {
+      color: var(--cp-text-muted);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    .filters {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 28px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+    .filter {
+      flex: 0 0 auto;
+      border: 1px solid var(--cp-border);
+      border-radius: 999px;
+      padding: 10px 16px;
+      background: var(--cp-surface);
+      color: var(--cp-text-muted);
+      cursor: pointer;
+      font-weight: 650;
+    }
+    .filter.active {
+      border-color: var(--cp-accent);
+      background: var(--cp-accent);
+      color: var(--cp-accent-fg);
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .product {
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid var(--cp-border);
+      border-radius: 16px;
+      background: var(--cp-surface);
+      box-shadow: 0 0 2px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.14);
+    }
+    .product-media {
+      position: relative;
+      aspect-ratio: 4 / 4.4;
+      overflow: hidden;
+      background: var(--cp-surface-soft);
+    }
+    .product-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 300ms ease;
+    }
+    .product:hover .product-media img { transform: scale(1.025); }
+    .tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      border-radius: 999px;
+      padding: 7px 10px;
+      background: var(--cp-panel-strong);
+      color: var(--cp-text);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .product-body { padding: 22px; }
+    .product-body h3 { margin: 0 0 9px; font-size: 21px; }
+    .product-body p {
+      min-height: 72px;
+      margin: 0 0 20px;
+      color: var(--cp-text-muted);
+      line-height: 1.55;
+    }
+    .product-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .size {
+      color: var(--cp-text-soft);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+    .product-link {
+      border: 0;
+      padding: 0;
+      background: transparent;
+      color: var(--cp-accent);
+      font-weight: 750;
+      cursor: pointer;
+    }
+    .catalog-empty {
+      grid-column: 1 / -1;
+      padding: 48px 24px;
+      border: 1px dashed var(--cp-border-strong);
+      border-radius: 16px;
+      text-align: center;
+      color: var(--cp-text-muted);
+      background: var(--cp-surface);
+    }
 
-        /* Compensação para o menu fixo */
-        header {
-            background-color: #85a392;
-            color: white;
-            padding: 20px;
-            margin-top: 60px;
-        }
+    .finder {
+      background: var(--cp-brand-deep);
+      color: var(--cp-brand-deep-text);
+    }
+    .finder-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .finder h2 {
+      margin: 0 0 20px;
+      font-size: clamp(42px, 5vw, 68px);
+      line-height: 1;
+    }
+    .finder p {
+      max-width: 560px;
+      margin: 0;
+      color: var(--cp-brand-deep-muted);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+    .finder-card {
+      border: 1px solid var(--cp-border-strong);
+      border-radius: 16px;
+      padding: 28px;
+      background: var(--cp-bg-elevated);
+      color: var(--cp-text);
+    }
+    .finder-card label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .finder-card select {
+      width: 100%;
+      min-height: 48px;
+      margin-bottom: 16px;
+      border: 1px solid var(--cp-border);
+      border-radius: 0.625rem;
+      padding: 0 14px;
+      background: var(--cp-surface);
+      color: var(--cp-text);
+      font: inherit;
+    }
+    .finder-card .button { width: 100%; }
 
-        header .header-content {
-            width: 100%;
-            max-width: 960px;
-            margin: 0 auto;
-            text-align: center;
-        }
+    .story-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .story-image {
+      overflow: hidden;
+      border-radius: 16px;
+      aspect-ratio: 4 / 4.6;
+      background: var(--cp-surface-soft);
+    }
+    .story-image img { width: 100%; height: 100%; object-fit: cover; }
+    .story-copy h2 { margin: 0 0 24px; font-size: clamp(42px, 5vw, 64px); }
+    .story-copy p { color: var(--cp-text-muted); font-size: 17px; line-height: 1.75; }
+    .quote {
+      margin: 32px 0;
+      padding-left: 22px;
+      border-left: 2px solid var(--cp-accent);
+      font-family: "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: 0;
+      line-height: 1.3;
+    }
 
-        header img {
-            width: 100%;
-            height: auto;
-            max-height: 400px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
+    footer {
+      padding: 48px 0 110px;
+      border-top: 1px solid var(--cp-border);
+      background: var(--cp-bg-elevated);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 36px;
+      align-items: center;
+    }
+    .footer-grid img { width: 150px; }
+    .footer-links { display: flex; gap: 22px; }
+    .footer-links a { color: var(--cp-text-muted); text-decoration: none; }
+    .whatsapp {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 20;
+      box-shadow: var(--cp-shadow);
+    }
 
-        /* Menu de navegação das categorias expandíveis */
-        .category-nav {
-            background-color: #f2f2f2;
-            padding: 15px;
-            margin: 20px auto;
-            text-align: center;
-            max-width: 960px;
-        }
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      display: none;
+      place-items: center;
+      padding: 20px;
+      background: var(--cp-overlay);
+    }
+    .modal.open { display: grid; }
+    .modal-card {
+      width: min(520px, 100%);
+      border: 1px solid var(--cp-border);
+      border-radius: 16px;
+      padding: 30px;
+      background: var(--cp-surface);
+      box-shadow: var(--cp-shadow);
+    }
+    .modal-card h3 { margin: 0 0 10px; font-size: 28px; }
+    .modal-card p { color: var(--cp-text-muted); line-height: 1.6; }
+    .modal-category {
+      margin: 0 0 8px;
+      color: var(--cp-accent);
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .modal-size {
+      display: inline-block;
+      margin-top: 8px;
+      color: var(--cp-text);
+      font-size: 13px;
+      font-weight: 750;
+      letter-spacing: 0.08em;
+    }
+    .modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 24px; }
 
-        .category {
-            cursor: pointer;
-            padding: 10px;
-            background-color: #85a392;
-            color: white;
-            border-radius: 8px;
-            font-size: 1.2em;
-            margin: 10px 0;
-            transition: background-color 0.3s ease;
-        }
-
-        .category:hover {
-            background-color: #6b8b83;
-        }
-
-        .subcategories {
-            display: none;
-            margin-top: 10px;
-        }
-
-        .subcategory a {
-            display: block;
-            color: #5d737e;
-            text-decoration: none;
-            font-size: 1em;
-            font-weight: bold;
-            padding: 8px;
-        }
-
-        .subcategory a:hover {
-            color: #85a392;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        h2 {
-            color: #5d737e;
-            text-align: center;
-        }
-
-        .intro-text {
-            text-align: center;
-            font-size: 1.2em;
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-
-        .intro-text h3 {
-            letter-spacing: 0.1em;
-            margin-bottom: 20px;
-            font-size: 2em;
-        }
-
-        .product-category {
-            margin-bottom: 40px;
-        }
-
-        .product {
-            background-color: #ffffff;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
-        }
-
-        /* Efeito ao passar o mouse sobre os produtos */
-        .product:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            border: 1px solid #85a392;
-        }
-
-        .product img {
-            max-width: 100%;
-            border-radius: 8px;
-            margin-bottom: 10px;
-        }
-
-        .product h3 {
-            margin-top: 0;
-            font-size: 1.5em;
-        }
-
-        .price {
-            color: #85a392;
-            font-weight: bold;
-        }
-
-        .download-pdf {
-            text-align: center;
-            margin: 50px 0;
-        }
-
-        .download-pdf a {
-            background-color: #5d737e;
-            color: white;
-            padding: 15px 25px;
-            font-size: 1.2em;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: background-color 0.3s ease;
-        }
-
-        .download-pdf a:hover {
-            background-color: #6b8b83;
-        }
-
-        footer {
-            background-color: #5d737e;
-            color: white;
-            padding: 20px;
-        }
-
-        footer .footer-content {
-            width: 100%;
-            max-width: 960px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        footer img {
-            max-width: 200px;
-            width: 100%;
-            height: auto;
-        }
-
-        /* Estilos para telas menores */
-        @media (max-width: 768px) {
-            nav .menu {
-                display: none;
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-            }
-
-            nav .menu.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: block;
-                color: white;
-            }
-
-            nav .menu a {
-                margin: 10px 0;
-                font-size: 1.5em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .intro-text h3 {
-                font-size: 1.5em;
-            }
-
-            .intro-text p {
-                font-size: 1em;
-            }
-
-            .product h3 {
-                font-size: 1.2em;
-            }
-
-            .product p {
-                font-size: 0.9em;
-            }
-
-            .download-pdf a {
-                padding: 10px 15px;
-                font-size: 1em;
-            }
-        }
-    </style>
+    @media (max-width: 860px) {
+      .nav-links a:not(.button) { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-copy { width: min(700px, calc(100% - 40px)); margin: 0 auto; padding: 80px 0 56px; }
+      .hero-media img { min-height: 480px; max-height: 620px; }
+      .values .wrap { grid-template-columns: 1fr; }
+      .value + .value { border-left: 0; border-top: 1px solid var(--cp-border); }
+      .section-head, .finder-grid, .story-grid { grid-template-columns: 1fr; }
+      .section-head { display: grid; }
+      .products { grid-template-columns: repeat(2, 1fr); }
+      .finder-grid, .story-grid { gap: 40px; }
+    }
+    @media (max-width: 580px) {
+      .nav, .wrap { width: min(100% - 28px, 1180px); }
+      .brand { width: 130px; }
+      .nav .button { padding: 0 13px; font-size: 13px; }
+      section { padding: 72px 0; }
+      .hero-copy { width: min(100% - 28px, 700px); }
+      .hero-media img { min-height: 410px; }
+      .products { grid-template-columns: 1fr; }
+      .catalog-tools { grid-template-columns: 1fr; }
+      .product-body p { min-height: auto; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-links { flex-wrap: wrap; }
+      .whatsapp { right: 14px; bottom: 14px; }
+    }
+  </style>
 </head>
 <body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navegação principal">
+      <a class="brand" href="#inicio" aria-label="Breeze Cosméticos">
+        <img src="images/logo.png" alt="Breeze Cosméticos">
+      </a>
+      <div class="nav-links">
+        <a href="#catalogo">Produtos</a>
+        <a href="#historia">Nossa essência</a>
+        <a href="https://www.instagram.com/breeze.cosmeticos/" target="_blank" rel="noreferrer">Instagram</a>
+        <a class="button" href="https://wa.me/5521988929477?text=Olá,%20gostaria%20de%20conhecer%20os%20produtos%20Breeze." target="_blank" rel="noreferrer">Falar no WhatsApp</a>
+      </div>
+    </nav>
+  </header>
 
-<!-- Menu fixo -->
-<nav>
-    <!-- Ícone do menu "sanduíche" -->
-    <span class="menu-toggle" onclick="toggleMenu()">&#9776;</span>
-    <div class="menu">
-        <a href="index.html">Página Principal</a>
-        <a href="#catalogo">Catálogo</a>
-        <a href="contato.html">Contato</a>
-    </div>
-</nav>
+  <main id="inicio">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Cosméticos naturais e artesanais</p>
+        <h1>O cuidado que vem da natureza.</h1>
+        <p>Fórmulas delicadas e eficazes para cuidar da pele, dos cabelos e da casa — com ingredientes naturais, composição vegana e produção artesanal.</p>
+        <div class="hero-actions">
+          <a class="button" href="#catalogo">Conhecer os produtos</a>
+          <a class="button secondary" href="#descobrir">Encontre seu cuidado</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="images/header.png" alt="Sabonetes artesanais Breeze em composição botânica">
+      </div>
+    </section>
 
-<header>
-    <div class="header-content">
-        <img src="images/header.png" alt="Imagem de Sabonete Carvão Ativado, com fundo de natureza e elementos de bem-estar">
-        <h1>Breeze Cosméticos</h1>
-        <p>Saúde e bem-estar para sua pele e cabelos</p>
-    </div>
-</header>
-
-<!-- Menu de navegação das categorias expandíveis -->
-<h2>Categorias de Produtos</h2>
-<div class="category-nav">
-    <div class="category" onclick="toggleCategory('corpo')">Corpo</div>
-    <div id="corpo" class="subcategories">
-        <div class="subcategory"><a href="#sabonetes">Sabonetes</a></div>
-        <div class="subcategory"><a href="#shampoos">Shampoos</a></div>
-        <div class="subcategory"><a href="#pomadas">Pomadas</a></div>
-        <div class="subcategory"><a href="#desodorantes">Desodorantes</a></div>
-    </div>
-
-    <div class="category" onclick="toggleCategory('rosto')">Rosto</div>
-    <div id="rosto" class="subcategories">
-        <div class="subcategory"><a href="#lip-balms">Lip Balms</a></div>
-        <div class="subcategory"><a href="#roll-ons">Roll-ons</a></div>
-    </div>
-
-    <div class="category" onclick="toggleCategory('ambientes')">Ambientes</div>
-    <div id="ambientes" class="subcategories">
-        <div class="subcategory"><a href="#envelopes-aromaticos">Envelopes Aromáticos</a></div>
-        <div class="subcategory"><a href="#velas-aromaticas">Velas Aromáticas</a></div>
-        <div class="subcategory"><a href="#difusores">Difusores</a></div>
-        <div class="subcategory"><a href="#home-sprays">Home Sprays</a></div>
-        <div class="subcategory"><a href="#agua-de-lencois">Água de Lençóis</a></div>
-    </div>
-</div>
-
-<div class="container" id="catalogo">
-    <div class="intro-text">
-        <h3>O poder do natural</h3>
-        <p>P R O D U Ç Ã O &nbsp; A R T E S A N A L , &nbsp; D E L I C A D A &nbsp; E &nbsp; E F I C A Z</p>
-        <p>
-            Tudo foi pensado com o propósito de levar saúde para sua pele e cabelos e bem-estar para o seu corpo de forma
-            delicada e eficaz. Os óleos vegetais, as manteigas e ceras vão hidratar e nutrir, já os óleos essenciais irão tratar
-            questões mais amplas, eles agem no corpo e na alma!
-        </p>
+    <div class="values">
+      <div class="wrap">
+        <div class="value"><strong>Produção artesanal</strong>Feito em pequenos lotes, com cuidado em cada etapa.</div>
+        <div class="value"><strong>Natural e vegano</strong>Ingredientes escolhidos para um cuidado consciente.</div>
+        <div class="value"><strong>Bem-estar por inteiro</strong>Produtos para corpo, mente e ambientes.</div>
+      </div>
     </div>
 
-<!-- Sabonetes -->
-<h2 id="sabonetes">Sabonetes</h2>
-<div class="product-category">
-  <div class="product">
-    <h3>Carvão Ativado</h3>
-    <p>Desenvolvido especialmente para peles oleosas e acneicas. Pode também ser utilizado no couro cabeludo que também se apresenta oleoso. A presença do carvão ativado junto aos óleos selecionados promoverá a desintoxicação da pele, controle da oleosidade e também agirá como fungicida e bactericida.</p>
-    <p class="price">90G</p>
-  </div>
-  <div class="product">
-    <h3>Coco Palmiste e Lavanda</h3>
-    <p>Desenvolvido para atender às necessidades das peles desidratadas, sem brilho, e dos cabelos que enfrentam esses mesmos desafios. Além disso, este produto auxilia em casos de fragilidade capilar, com óleos essenciais selecionados que nutrem o bulbo capilar, ajudando a prevenir a queda e promovendo o crescimento saudável dos fios. Com óleos essenciais que atuam contra o estresse, ele também proporciona uma sensação de paz e tranquilidade.</p>
-    <p class="price">90G</p>
-  </div>
-  <div class="product">
-    <h3>Pura Oliva</h3>
-    <p>Este sabonete foi desenvolvido para atender a todo tipo de pele. Em especial, peles sensíveis e delicadas. Os óleos essenciais presentes na fórmula irão proporcionar o equilíbrio para a pele, mas também para o emocional, por se tratarem de óleos que suscitam alegria, vigor e bem-estar.</p>
-    <p class="price">90G</p>
-  </div>
-  <div class="product">
-    <h3>Argila Preta e Vermelha</h3>
-    <p>Desenvolvido para atender às necessidades das peles maduras e das peles desvitalizadas e sem viço. Os princípios ativos desta formulação agem de forma sinérgica, combatendo os radicais livres, estimulando a circulação sanguínea e, desta forma, melhorando a oxigenação da pele e estimulando a produção de colágeno e elastina. A receita perfeita para quem busca atenuar rugas, marcas de expressão e flacidez. A presença dos óleos essenciais com efeitos ansiolíticos, antidepressivos e revigorantes também promove alegria de viver.</p>
-    <p class="price">90G</p>
-  </div>
-  <div class="product">
-    <h3>Infantil Peles Sensíveis</h3>
-    <p>Desenvolvido para atender aos cuidados especiais que peles infantis e sensíveis necessitam. Os ácidos graxos presentes nos óleos vegetais são encontrados também na pele humana e fazem parte do processo de manutenção da hidratação, da flexibilidade e da maciez da pele.</p>
-    <p class="price">90G</p>
-  </div>
-  <div class="product">
-    <h3>Amazônia</h3>
-    <p>Nutrição e hidratação profunda para sua pele, com ingredientes especiais nativos da nossa floresta. Feito com manteigas de cupuaçu e ucuuba, óleo vegetal de açaí e uma combinação de óleos essenciais poderosos como lavanda, copaíba e gerânio. Ele revitaliza, regenera e acalma, proporcionando um cuidado natural e profundo. Ideal para quem busca uma pele macia e protegida.</p>
-    <p class="price">90G</p>
-  </div>
-  <div class="product">
-    <h3>Brasilidade</h3>
-    <p>Este sabonete foi criado para cuidar da pele e dos cabelos com ingredientes naturais brasileiros. O óleo de castanha do Brasil, rico em antioxidantes e vitaminas, restaura a barreira lipídica, hidrata e previne o envelhecimento precoce. A manteiga de cupuaçu retém a umidade, cicatriza e é ideal para peles secas e sensíveis. Nos cabelos, fortalece os fios, combate a queda, estimula o crescimento e alisa naturalmente.</p>
-    <p class="price">90G</p>
-  </div>
-  <div class="product">
-    <h3>Mulher</h3>
-    <p>Desenvolvido para o cuidado íntimo feminino, oferecendo limpeza delicada, frescor e conforto. Ajuda a prevenir irritações, odores e infecções – como candidíase e vaginose – equilibrando a flora natural. Enriquecido com óleos antifúngicos, antissépticos e antioxidantes, proporciona proteção suave e eficaz. Use com moderação para preservar a barreira natural da região íntima.</p>
-    <p class="price">90G</p>
-  </div>
-  <div class="product">
-    <h3>Peles Oleosas e Acneicas</h3>
-    <p>Desenvolvido para cuidar de peles oleosas e acneicas, combinando ingredientes naturais com ação seborreguladora, anti-inflamatória e bactericida. Controla a oleosidade, previne cravos e espinhas, trata a acne e melhora cicatrizes e manchas, estimulando a renovação celular. Com óleos essenciais calmantes, também ajuda a aliviar os impactos emocionais da acne.</p>
-    <p class="price">90G</p>
-  </div>
-</div>
+    <section id="catalogo">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Destaques da Breeze</p>
+            <h2>Um ritual natural para cada momento.</h2>
+          </div>
+          <p>Explore por categoria ou pesquise pelo nome e pela necessidade. As fotos individuais serão incluídas à medida que forem produzidas.</p>
+        </div>
+        <div class="catalog-tools">
+          <input class="search" id="catalog-search" type="search" placeholder="Buscar produto ou benefício" aria-label="Buscar no catálogo">
+          <span class="catalog-count" id="catalog-count"></span>
+        </div>
+        <div class="filters" aria-label="Filtros do catálogo">
+          <button class="filter active" data-filter="all">Todos</button>
+          <button class="filter" data-filter="pele">Pele</button>
+          <button class="filter" data-filter="cabelos">Cabelos</button>
+          <button class="filter" data-filter="ambientes">Ambientes</button>
+        </div>
+        <div class="products" id="product-grid"></div>
+      </div>
+    </section>
 
-<!-- Shampoos -->
-<h2 id="shampoos">Shampoos</h2>
-<div class="product-category">
-  <div class="product">
-    <h3>Shampoo Fortalecedor de Alecrim</h3>
-    <p>Desenvolvido para atender à demanda de cabelos que precisam ser fortalecidos, por meio de uma formulação que proporciona uma blindagem ao fio, evita o frizz, a formação de ponta dupla e auxilia no crescimento. Também é indicado para melhorar a penteabilidade, definir cachos e selar cutículas.</p>
-    <p class="price">90G</p>
-  </div>
-</div>
+    <section class="finder" id="descobrir">
+      <div class="wrap finder-grid">
+        <div>
+          <p class="eyebrow">Descoberta orientada</p>
+          <h2>Qual cuidado combina com você?</h2>
+          <p>Conte o que você procura e veja uma seleção de produtos Breeze que combinam com o seu momento.</p>
+        </div>
+        <form class="finder-card" id="finder-form">
+          <label for="need">O que você procura hoje?</label>
+          <select id="need">
+            <option value="pele oleosa">Equilibrar a pele oleosa</option>
+            <option value="hidratação">Hidratar pele e cabelos</option>
+            <option value="relaxamento">Relaxar e dormir melhor</option>
+            <option value="ambiente">Perfumar e cuidar da casa</option>
+          </select>
+          <button class="button" type="submit">Ver minha recomendação</button>
+        </form>
+      </div>
+    </section>
 
-<!-- Pomadas -->
-<h2 id="pomadas">Pomadas</h2>
-<div class="product-category">
-  <div class="product">
-    <h3>Psoríase</h3>
-    <p>A psoríase é uma doença de pele inflamatória, multifatorial, de incidência genética e relacionada ao sistema imunológico e ao estresse. Para tratar as lesões, é importante hidratar a pele e usar ativos anti-inflamatórios, cicatrizantes e calmantes. Alinhado a esse propósito, nasce a pomada para psoríase, com ativos que cuidarão de você de dentro para fora.</p>
-    <p class="price">30G</p>
-  </div>
-  <div class="product">
-    <h3>Alívio</h3>
-    <p>Alívio é uma pomada natural e vegana, elaborada para aliviar dores músculo-esqueléticas. Contém óleos essenciais com ação analgésica, anti-inflamatória e calmante, proporcionando não só o alívio, mas também mais qualidade de vida e bem-estar.</p>
-    <p class="price">100G</p>
-  </div>
-  <div class="product">
-    <h3>Bálsamo Expectorante</h3>
-    <p>Um bálsamo natural e vegano desenvolvido para promover o alívio de desconfortos respiratórios causados por variações climáticas, poluição e problemas alérgicos, virais ou bacterianos. Formulado com óleos essenciais de ação antialérgica, anti-inflamatória, antiviral, antibacteriana, expectorante e mucolítica, auxilia na saúde respiratória, proporcionando bem-estar e mais qualidade de vida.</p>
-    <p class="price">100G</p>
-  </div>
-</div>
+    <section id="historia">
+      <div class="wrap story-grid">
+        <div class="story-image">
+          <img src="images/header.png" alt="Detalhes da produção artesanal Breeze">
+        </div>
+        <div class="story-copy">
+          <p class="eyebrow">Nossa essência</p>
+          <h2>Delicadeza no processo. Presença no cuidado.</h2>
+          <p>A nova experiência também deve contar a história da Breeze: uma produção artesanal que combina óleos vegetais, manteigas, ceras e óleos essenciais para criar produtos naturais e eficazes.</p>
+          <p class="quote">“Cuidar da pele, dos cabelos e do ambiente de forma consciente e acolhedora.”</p>
+          <a class="button secondary" href="https://www.instagram.com/breeze.cosmeticos/" target="_blank" rel="noreferrer">Conhecer a Breeze no Instagram</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<!-- Desodorantes -->
-<h2 id="desodorantes">Desodorantes</h2>
-<div class="product-category">
-  <div class="product">
-    <h3>Em Lata</h3>
-    <p>Elaborado a partir de matérias-primas vegetais e totalmente vegano, este desodorante é livre de lauril, parabenos, petrolatos e alumínio – ingredientes nocivos que atuam como desruptores endócrinos.</p>
-    <p class="price">100G</p>
-  </div>
-  <div class="product">
-    <h3>Em Bisnaga</h3>
-    <p>Elaborado a partir de matérias-primas vegetais e totalmente vegano, este desodorante é livre de lauril, parabenos, petrolatos e alumínio – ingredientes nocivos que atuam como desruptores endócrinos.</p>
-    <p class="price">60G</p>
-  </div>
-</div>
-
-<!-- Lip Balms -->
-<h2 id="lip-balms">Lip Balms</h2>
-<div class="product-category">
-  <div class="product">
-    <h3>Com Cor</h3>
-    <p>Ideal para manter a hidratação dos lábios e evitar rachaduras. Elaborado com óleo de pracaxi, manteiga de cacau, cera de carnaúba, óleo resina de alecrim, absoluto de cacau e absoluto de baunilha, oferece uma ação hidratante muito potente.</p>
-    <p class="price">4,5ML</p>
-    <h3>Sem Cor</h3>
-    <p>Ideal para manter a hidratação dos lábios e evitar rachaduras. Elaborado com óleo de pracaxi, manteiga de cacau, cera de carnaúba, óleo resina de alecrim, absoluto de cacau e absoluto de baunilha, oferece uma ação hidratante muito potente.</p>
-    <p class="price">4,5ML</p>  
-  </div>
-</div>
-
-<!-- Roll-ons -->
-<h2 id="roll-ons">Roll-ons</h2>
-<div class="product-category">
-  <div class="product">
-    <h3>Calma e Equilíbrio</h3>
-    <p>Blend de óleos essenciais que pode ser aplicado em pontos vitais para atenuar sintomas de ansiedade, insônia e outros desequilíbrios emocionais.</p>
-    <p class="price">10ML</p>
-  </div>
-  <div class="product">
-    <h3>Foco e Concentração</h3>
-    <p>Blend de óleos essenciais que pode ser aplicado em pontos vitais para trazer mais foco e concentração ao seu dia-a-dia.</p>
-    <p class="price">10ML</p>
-  </div>
-  <div class="product">
-    <h3>Anti Enxaqueca</h3>
-    <p>Blend de óleos essenciais formulado para reduzir as dores e sintomas da enxaqueca.</p>
-    <p class="price">10ML</p>
-  </div>
-</div>
-
-<!-- Fortalecedores -->
-<h2 id="fortalecedores">Fortalecedores</h2>
-<div class="product-category">
-  <div class="product">
-    <h3>Strong Nails</h3>
-    <p>Fortalecedor de unhas 100% natural, formulado com óleo vegetal de rícino e óleos essenciais de tea tree, cravo e limão. Hidrata profundamente, fortalece unhas frágeis e previne quebras, oferecendo ação antifúngica e revitalizante.</p>
-    <p class="price">10ML</p>
-  </div>
-  <div class="product">
-    <h3>Strong Hair</h3>
-    <p>Fortalecedor capilar natural com óleos vegetais de pracaxi e abacate, aliado aos óleos essenciais de alecrim, copaíba e laranja. Nutre profundamente, estimula o crescimento, fortalece os fios e combate a queda.</p>
-    <p class="price">30ML</p>
-  </div>
-  <div class="product">
-    <h3>Strong Brows</h3>
-    <p>Fortalecedor natural para sobrancelhas, com óleo de mamona, bioativo Sandalore e óleos essenciais de alecrim, hortelã-pimenta, hinoki, cedro-do-Atlas e gerânio. Estimula o crescimento, fortalece os fios e promove sobrancelhas mais cheias e definidas.</p>
-    <p class="price">4,5ML</p>
-  </div>
-</div>
-
-<!-- Envelopes Aromáticos -->
-<h2 id="envelopes-aromaticos">Envelopes Aromáticos</h2>
-<div class="product-category">
-  <div class="product">
-    <h3>Lavanda</h3>
-    <p>Envelope aromático com óleo essencial de lavanda, ideal para ambientes. Promove relaxamento e cria uma atmosfera tranquila e acolhedora.</p>
-    <p class="price">10G</p>
-  </div>
-  <div class="product">
-    <h3>Laranja e Canela</h3>
-    <p>Envelope aromático com óleos essenciais de canela e laranja, perfeito para ambientes. Combina o toque energizante da laranja com o calor acolhedor da canela.</p>
-    <p class="price">10G</p>
-  </div>
-  <div class="product">
-    <h3>Fresh</h3>
-    <p>Envelope aromático Fresh, ideal para ambientes, com aroma cítrico e refrescante que energiza o espaço.</p>
-    <p class="price">10G</p>
-  </div>
-  <div class="product">
-    <h3>Capim-limão</h3>
-    <p>Envelope aromático com óleo essencial de capim-limão, que oferece um aroma fresco e revitalizante, purificando o ambiente.</p>
-    <p class="price">10G</p>
-  </div>
-</div>
-
-<!-- Velas Aromáticas -->
-<h2 id="velas-aromaticas">Velas Aromáticas</h2>
-<div class="product-category">
-  <div class="product">
-    <h3>Paz e Alegria</h3>
-    <p>Desenvolvida para proporcionar um ambiente leve, tranquilo e acolhedor, com um blend de óleos essenciais que atuam como calmantes, ansiolíticos e antidepressivos naturais.</p>
-    <p class="price">150G</p>
-  </div>
-  <div class="product">
-    <h3>Energia</h3>
-    <p>Desenvolvida para auxiliar a enfrentar os desafios do dia a dia, com um blend de óleos essenciais que restauram a vitalidade e disposição.</p>
-    <p class="price">150G</p>
-  </div>
-</div>
-
-<!-- Difusores de Ambiente -->
-<h2 id="difusores">Difusores de Ambiente</h2>
-<div class="product-category">
-  <div class="product">
-    <h3>Relax</h3>
-    <p>Blend de óleos essenciais cuidadosamente formulado para amenizar os efeitos do estresse, trazendo calma e tranquilidade para o ambiente.</p>
-    <p class="price">300ML</p>
-  </div>
-  <div class="product">
-    <h3>Foco e Atenção</h3>
-    <p>Blend de óleos essenciais desenvolvido para auxiliar na recuperação do foco e da clareza mental, ajudando na concentração para as tarefas diárias.</p>
-    <p class="price">300ML</p>
-  </div>
-  <div class="product">
-    <h3>Capim-limão</h3>
-    <p>Blend de óleos essenciais selecionado para promover um ambiente revigorante, calmo e acolhedor, aliviando tensões e elevando o ânimo.</p>
-    <p class="price">300ML</p>
-  </div>
-  <div class="product">
-    <h3>Paz e Alegria</h3>
-    <p>Blend de óleos essenciais que proporciona um ambiente leve e tranquilo, com ação calmante e antidepressiva natural.</p>
-    <p class="price">300ML</p>
-  </div>
-</div>
-
-<!-- Home Sprays -->
-<h2 id="home-sprays">Home Sprays</h2>
-<div class="product-category">
-  <div class="product">
-    <h3>Relax</h3>
-    <p>Blend de óleos essenciais formulado para amenizar os efeitos do estresse, promovendo um relaxamento suave com uso regular.</p>
-    <p class="price">250ML</p>
-  </div>
-  <div class="product">
-    <h3>Energia</h3>
-    <p>Blend de óleos essenciais que, através do poder revitalizante das plantas, restaura a vitalidade e disposição para as tarefas diárias.</p>
-    <p class="price">250ML</p>
-  </div>
-  <div class="product">
-    <h3>Ar Puro</h3>
-    <p>Blend de óleos essenciais com propriedades antissépticas, atuando como bactericida e antiviral para melhorar a qualidade do ar no ambiente.</p>
-    <p class="price">250ML</p>
-  </div>
-</div>
-
-<!-- Água de Lençóis -->
-<h2 id="agua-de-lencois">Água de Lençóis</h2>
-<div class="product-category">
-  <div class="product">
-    <h3>Bons Sonhos</h3>
-    <p>Blend de óleos essenciais desenvolvido para aliviar os sintomas da insônia, promovendo relaxamento e uma noite de sono tranquila e revigorante.</p>
-    <p class="price">175ML</p>
-  </div>
-  <div class="product">
-    <h3>Afrodisíaca</h3>
-    <p>Blend de óleos essenciais criado para estimular a sensualidade e a paixão, despertando os sentidos e convidando à intimidade.</p>
-    <p class="price">175ML</p>
-  </div>
-</div>
-
-<!-- Wax Melt -->
-<h2 id="wax-melt">Wax Melt</h2>
-<div class="product-category">
-  <div class="product">
-    <h3>Repelente</h3>
-    <p>Pastilha aromática natural e vegana, com óleos essenciais repelentes que repelem mosquitos enquanto perfumam o ambiente. Ao aquecer, libera seus aromas e, ao esfriar, solidifica para uso repetido.</p>
-    <p class="price">35G</p>
-  </div>
-  <div class="product">
-    <h3>Sweet Citrus</h3>
-    <p>Pastilha aromática natural e vegana com óleos essenciais calmantes, que ajudam a aliviar a ansiedade e criar um ambiente relaxante. Funciona aquecendo e esfriando, mantendo sua fragrância por várias utilizações.</p>
-    <p class="price">35G</p>
-  </div>
-</div>
-
-<!-- Aroma Sticks -->
-<h2 id="aroma-sticks">Aroma Sticks</h2>
-<div class="product-category">
-  <div class="product">
-    <h3>Sono Profundo</h3>
-    <p>Promove calma, relaxamento e tranquilidade, ajudando a reduzir o estresse e aliviar a insônia com seu blend especial de óleos essenciais.</p>
-    <p class="price"></p>
-  </div>
-  <div class="product">
-    <h3>Respire</h3>
-    <p>Auxilia na limpeza das vias respiratórias, aliviando sintomas de sinusite, bronquite e rinite, além de contribuir no combate de gripes e resfriados.</p>
-    <p class="price"></p>
-  </div>
-  <div class="product">
-    <h3>Mulher</h3>
-    <p>Contribui para o equilíbrio hormonal, proporcionando alívio dos sintomas da TPM e da menopausa por meio do seu blend de óleos essenciais.</p>
-    <p class="price"></p>
-  </div>
-  <div class="product">
-    <h3>Foco</h3>
-    <p>Reduz a distração e o cansaço mental, promovendo clareza e foco no momento presente com seu blend de óleos essenciais.</p>
-    <p class="price"></p>
-  </div>
-  <div class="product">
-    <h3>Depressão</h3>
-    <p>Alivia sentimentos de amargura, tristeza e desesperança, promovendo equilíbrio emocional com sua fórmula especial.</p>
-    <p class="price"></p>
-  </div>
-  <div class="product">
-    <h3>Antitabagismo</h3>
-    <p>Auxilia quem deseja ou precisa parar de fumar, ajudando a reduzir a ansiedade e a compulsão com seu blend de óleos essenciais.</p>
-    <p class="price"></p>
-  </div>
-  <div class="product">
-    <h3>Anti Estresse</h3>
-    <p>Reduz a ansiedade e restabelece o equilíbrio emocional com seu blend de óleos essenciais.</p>
-    <p class="price"></p>
-  </div>
-  <div class="product">
-    <h3>Ânimo e Energia</h3>
-    <p>Revigora e desperta, trazendo uma sensação de alegria e disposição para enfrentar os desafios diários.</p>
-    <p class="price"></p>
-  </div>
-  <div class="product">
-    <h3>Alegria</h3>
-    <p>Indicado para quem busca resgatar a leveza e o bom humor por meio do seu blend especial de óleos essenciais.</p>
-    <p class="price"></p>
-  </div>
-</div>
-
-<!-- (Opcional) Se desejar incluir um link para download do catálogo PDF -->
-<div class="download-pdf">
-  <a href="files/catalogo-setembro.pdf" download="catalogo_breeze.pdf">Baixar Catálogo PDF</a>
-</div>
-
-
- 
-
-
-
-<footer>
-    <div class="footer-content">
-        <p>&copy; 2024 Breeze Cosméticos - Saúde e bem-estar para sua pele e cabelos</p>
-        <img src="images/logo.png" alt="Logotipo da Breeze Cosméticos">
+  <footer>
+    <div class="wrap footer-grid">
+      <div>
+        <img src="images/logo.png" alt="Breeze Cosméticos">
+        <p>Cosméticos naturais, veganos e artesanais.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#catalogo">Produtos</a>
+        <a href="https://www.instagram.com/breeze.cosmeticos/" target="_blank" rel="noreferrer">Instagram</a>
+      </div>
     </div>
-</footer>
+  </footer>
 
-<script>
-    function toggleCategory(id) {
-        const element = document.getElementById(id);
-        if (element.style.display === "block") {
-            element.style.display = "none";
-        } else {
-            element.style.display = "block";
-        }
+  <a class="button whatsapp" href="https://wa.me/5521988929477?text=Olá,%20gostaria%20de%20conhecer%20os%20produtos%20Breeze." target="_blank" rel="noreferrer">WhatsApp</a>
+
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <p class="modal-category" id="modal-category">Produto Breeze</p>
+      <h3 id="modal-title">Produto Breeze</h3>
+      <p id="modal-copy">Conheça os detalhes deste produto Breeze.</p>
+      <span class="modal-size" id="modal-size"></span>
+      <div class="modal-actions">
+        <button class="button secondary" id="modal-close" type="button">Fechar</button>
+        <a class="button" id="modal-whatsapp" href="#" target="_blank" rel="noreferrer">Tenho interesse</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="products.js"></script>
+  <script>
+    const filters = document.querySelectorAll(".filter");
+    const grid = document.getElementById("product-grid");
+    const search = document.getElementById("catalog-search");
+    const count = document.getElementById("catalog-count");
+    let activeFilter = "all";
+    const normalize = (value) =>
+      value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
+    function renderProducts() {
+      const term = normalize(search.value.trim());
+      const visible = window.BREEZE_PRODUCTS.filter((product) => {
+        const matchesCategory = activeFilter === "all" || product.group === activeFilter;
+        const searchable = normalize(
+          [product.name, product.category, product.tag, product.description].join(" ")
+        );
+        return matchesCategory && searchable.includes(term);
+      });
+      count.textContent = `${visible.length} ${visible.length === 1 ? "produto" : "produtos"}`;
+      if (!visible.length) {
+        grid.innerHTML = '<div class="catalog-empty">Nenhum produto encontrado. Tente outra busca ou categoria.</div>';
+        return;
+      }
+      grid.innerHTML = visible.map((product) => `
+        <article class="product">
+          <div class="product-media">
+            <img src="${product.image || "images/header.png"}" alt="${product.name}" loading="lazy">
+            <span class="tag">${product.tag || product.category}</span>
+          </div>
+          <div class="product-body">
+            <h3>${product.name}</h3>
+            <p>${product.summary}</p>
+            <div class="product-meta">
+              <span class="size">${product.size || "CONSULTE"}</span>
+              <button class="product-link" data-product-id="${product.id}">Ver detalhes →</button>
+            </div>
+          </div>
+        </article>
+      `).join("");
     }
 
-    function toggleMenu() {
-        const menu = document.querySelector('.menu');
-        menu.classList.toggle('active');
-    }
-</script>
+    filters.forEach((filter) => {
+      filter.addEventListener("click", () => {
+        filters.forEach((item) => item.classList.remove("active"));
+        filter.classList.add("active");
+        activeFilter = filter.dataset.filter;
+        renderProducts();
+      });
+    });
+    search.addEventListener("input", renderProducts);
 
+    const modal = document.getElementById("modal");
+    const modalTitle = document.getElementById("modal-title");
+    const modalCategory = document.getElementById("modal-category");
+    const modalCopy = document.getElementById("modal-copy");
+    const modalSize = document.getElementById("modal-size");
+    const modalWhatsapp = document.getElementById("modal-whatsapp");
+    grid.addEventListener("click", (event) => {
+      const link = event.target.closest(".product-link");
+      if (!link) return;
+      const product = window.BREEZE_PRODUCTS.find((item) => item.id === link.dataset.productId);
+      if (product) {
+        modalCategory.textContent = product.category;
+        modalTitle.textContent = product.name;
+        modalCopy.textContent = product.description;
+        modalSize.textContent = product.size || "Tamanho sob consulta";
+        modalWhatsapp.href =
+          "https://wa.me/5521988929477?text=" +
+          encodeURIComponent("Olá, gostaria de saber mais sobre " + product.name + ".");
+        modal.classList.add("open");
+      }
+    });
+    document.getElementById("modal-close").addEventListener("click", () => modal.classList.remove("open"));
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) modal.classList.remove("open");
+    });
+
+    document.getElementById("finder-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const need = document.getElementById("need").value;
+      const recommendations = {
+        "pele oleosa": ["carvao-ativado", "peles-oleosas-acneicas"],
+        "hidratação": ["coco-palmiste-lavanda", "amazonia", "strong-hair"],
+        "relaxamento": ["roll-on-calma", "vela-paz-alegria", "home-spray-relax", "agua-lencois-bons-sonhos"],
+        "ambiente": ["difusor-capim-limao", "home-spray-energia", "envelope-lavanda"]
+      };
+      const recommendedIds = recommendations[need] || [];
+      const recommended = window.BREEZE_PRODUCTS.filter((product) =>
+        recommendedIds.includes(product.id)
+      );
+      activeFilter = "all";
+      filters.forEach((item) => item.classList.toggle("active", item.dataset.filter === "all"));
+      search.value = "";
+      grid.innerHTML = recommended.map((product) => `
+        <article class="product">
+          <div class="product-media">
+            <img src="${product.image || "images/header.png"}" alt="${product.name}" loading="lazy">
+            <span class="tag">${product.tag || product.category}</span>
+          </div>
+          <div class="product-body">
+            <h3>${product.name}</h3>
+            <p>${product.summary}</p>
+            <div class="product-meta">
+              <span class="size">${product.size || "CONSULTE"}</span>
+              <button class="product-link" data-product-id="${product.id}">Ver detalhes →</button>
+            </div>
+          </div>
+        </article>
+      `).join("");
+      count.textContent = `${recommended.length} recomendações`;
+      document.getElementById("catalogo").scrollIntoView({ behavior: "smooth" });
+    });
+    renderProducts();
+  </script>
 </body>
 </html>
