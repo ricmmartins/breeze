@@ -347,6 +347,11 @@
       color: var(--cp-text-muted);
       background: var(--cp-surface);
     }
+    .catalog-actions {
+      display: flex;
+      justify-content: center;
+      margin-top: 32px;
+    }
 
     .finder {
       background: var(--cp-brand-deep);
@@ -568,6 +573,9 @@
           <button class="filter" data-filter="ambientes">Ambientes</button>
         </div>
         <div class="products" id="product-grid"></div>
+        <div class="catalog-actions">
+          <button class="button secondary" id="catalog-toggle" type="button">Ver catálogo completo</button>
+        </div>
       </div>
     </section>
 
@@ -641,20 +649,27 @@
     const grid = document.getElementById("product-grid");
     const search = document.getElementById("catalog-search");
     const count = document.getElementById("catalog-count");
+    const catalogToggle = document.getElementById("catalog-toggle");
     let activeFilter = "all";
+    let catalogExpanded = false;
     const normalize = (value) =>
       value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
     function renderProducts() {
       const term = normalize(search.value.trim());
-      const visible = window.BREEZE_PRODUCTS.filter((product) => {
+      const matches = window.BREEZE_PRODUCTS.filter((product) => {
         const matchesCategory = activeFilter === "all" || product.group === activeFilter;
         const searchable = normalize(
           [product.name, product.category, product.tag, product.description].join(" ")
         );
         return matchesCategory && searchable.includes(term);
       });
-      count.textContent = `${visible.length} ${visible.length === 1 ? "produto" : "produtos"}`;
+      const isBrowsing = catalogExpanded || activeFilter !== "all" || term.length > 0;
+      const visible = isBrowsing ? matches : matches.slice(0, 6);
+      count.textContent = isBrowsing
+        ? `${visible.length} ${visible.length === 1 ? "produto" : "produtos"}`
+        : `6 destaques de ${matches.length} produtos`;
+      catalogToggle.hidden = isBrowsing;
       if (!visible.length) {
         grid.innerHTML = '<div class="catalog-empty">Nenhum produto encontrado. Tente outra busca ou categoria.</div>';
         return;
@@ -686,6 +701,10 @@
       });
     });
     search.addEventListener("input", renderProducts);
+    catalogToggle.addEventListener("click", () => {
+      catalogExpanded = true;
+      renderProducts();
+    });
 
     const modal = document.getElementById("modal");
     const modalTitle = document.getElementById("modal-title");
@@ -727,6 +746,7 @@
         recommendedIds.includes(product.id)
       );
       activeFilter = "all";
+      catalogExpanded = true;
       filters.forEach((item) => item.classList.toggle("active", item.dataset.filter === "all"));
       search.value = "";
       grid.innerHTML = recommended.map((product) => `
