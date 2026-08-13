@@ -15,7 +15,7 @@ window.BREEZE_PRODUCTS = [
   ["desodorante-bisnaga", "Desodorante em Bisnaga", "Desodorantes", "pele", "Prático e natural", "60 G", "A mesma proteção natural em uma embalagem prática para o dia a dia.", "Desodorante vegano à base de matérias-primas vegetais, sem lauril, parabenos, petrolatos ou alumínio."],
   ["lip-balm-cor", "Lip Balm com Cor", "Cuidados labiais", "pele", "Hidratação com cor", "4,5 ML", "Hidratação intensa com um toque suave de cor.", "Combina óleo de pracaxi, manteiga de cacau, cera de carnaúba e extratos aromáticos para manter os lábios macios e protegidos."],
   ["lip-balm-sem-cor", "Lip Balm sem Cor", "Cuidados labiais", "pele", "Hidratação diária", "4,5 ML", "Proteção e maciez para os lábios, sem adicionar cor.", "Uma combinação nutritiva de óleos, manteigas e ceras vegetais para prevenir o ressecamento e manter o conforto dos lábios."],
-  ["roll-on-calma", "Calma e Equilíbrio", "Roll-ons", "pele", "Bem-estar", "10 ML", "Blend aromático para momentos de pausa, calma e equilíbrio.", "Roll-on de óleos essenciais para aplicar em pontos vitais e incorporar a pequenos rituais de relaxamento."],
+  ["roll-on-calma", "Roll-on Calma & Equilíbrio", "Roll-ons", "pele", "Pausa e bem-estar", "10 ML", "Uma sinergia aromática para desacelerar e criar uma pausa na rotina.", "Combina óleos essenciais de lavanda, bergamota, espruce, laranja-doce, ylang-ylang, sândalo amyris e bálsamo de copaíba em um ritual sensorial de calma e equilíbrio. Modo de usar: aplique nas têmporas, atrás das orelhas, na nuca ou nos pulsos e respire profundamente."],
   ["roll-on-foco", "Foco e Concentração", "Roll-ons", "pele", "Clareza", "10 ML", "Aroma estimulante para acompanhar tarefas que pedem presença.", "Blend de óleos essenciais em formato roll-on, pensado para trazer uma sensação aromática de clareza à rotina."],
   ["roll-on-bons-sonhos", "Roll-on Bons Sonhos", "Roll-ons", "pele", "Ritual noturno", "10 ML", "Sinergia aromática para desacelerar e preparar corpo e mente para o descanso.", "Combina óleos essenciais de candeia, camará, laranja-doce, rosa, manjerona, ylang-ylang, lavanda e copaíba em um ritual noturno de relaxamento. Modo de usar: aplique nos pulsos, têmporas ou atrás das orelhas antes de dormir."],
   ["strong-nails", "Strong Nails", "Fortalecedores", "pele", "Unhas", "10 ML", "Óleos naturais para hidratar e fortalecer unhas frágeis.", "Formulado com óleo vegetal de rícino e óleos essenciais selecionados para nutrir unhas e cutículas."],
@@ -39,6 +39,7 @@ window.BREEZE_PRODUCTS = [
   id, name, category, group, tag, size, summary, description,
   image: {
     "vela-energia": "images/products/vela-energia.png",
+    "roll-on-calma": "images/products/roll-on-calma-equilibrio.png",
     "roll-on-bons-sonhos": "images/products/roll-on-bons-sonhos.png"
   }[id] || "images/header.png"
 }));
